@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MapPin, Cloud } from "lucide-react";
+import { MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-girl.png";
+
 const Hero = () => {
+  const locations = ["BEOGRAD", "NOVI SAD", "PANČEVO"];
+
   return (
-    <section className="min-h-screen pt-20 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:py-20 py-0">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-8rem)]">
+    <section className="min-h-screen pt-20 bg-background relative overflow-hidden flex flex-col">
+      <div className="container mx-auto px-6 lg:py-20 py-0 flex-1">
+        <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
           {/* Left - Text Content */}
           <motion.div
             initial={{
@@ -101,7 +104,7 @@ const Hero = () => {
               duration: 0.8,
               delay: 0.3,
             }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end items-end h-full"
           >
             <div className="relative">
               {/* Decorative elements */}
@@ -111,16 +114,47 @@ const Hero = () => {
               <motion.img
                 src={heroImage}
                 alt="Dental professional holding X-ray tablet"
-                className="relative z-10 max-w-full h-auto max-h-[600px] object-contain drop-shadow-2xl"
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                className="relative z-10 max-w-full h-auto object-contain drop-shadow-2xl"
+                style={{ maxHeight: "calc(100vh - 200px)" }}
               />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Location Strip - Now part of Hero */}
+      <div className="py-8 border-t border-border/30">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center space-y-4"
+          >
+            <p className="text-sm uppercase tracking-widest text-muted-foreground font-medium">
+              Dostupni u 3 grada
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+              {locations.map((location, index) => (
+                <div key={location} className="flex items-center gap-4 md:gap-8">
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.9 + index * 0.15 }}
+                    className="text-2xl md:text-4xl font-serif font-bold text-foreground tracking-tight"
+                  >
+                    {location}
+                  </motion.span>
+                  {index < locations.length - 1 && (
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.3, delay: 1 + index * 0.15 }}
+                      className="w-2 h-2 rounded-full bg-primary hidden md:block"
+                    />
+                  )}
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -128,4 +162,5 @@ const Hero = () => {
     </section>
   );
 };
+
 export default Hero;
