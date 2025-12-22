@@ -39,7 +39,7 @@ const Hero = () => {
                   delay: 0.2,
                 }}
               >
-                <span className="font-serif">Više</span> od snimka.
+                Više od snimka.
                 <br />
                 Vizija <span className="text-primary">osmeha</span>.
               </motion.h1>
