@@ -84,10 +84,6 @@ const Hero = () => {
                 <MapPin className="w-5 h-5 mr-2" />
                 Pronađi Lokacije
               </Button>
-              <Button variant="raised" size="xl">
-                <Cloud className="w-5 h-5 mr-2" />
-                OrtoCloud Login
-              </Button>
             </motion.div>
           </motion.div>
 
