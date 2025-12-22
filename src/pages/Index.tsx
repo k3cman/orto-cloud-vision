@@ -5,6 +5,7 @@ import TrustStats from "@/components/TrustStats";
 import ServiceCards from "@/components/ServiceCards";
 import Timeline from "@/components/Timeline";
 import OrtoCloudSection from "@/components/OrtoCloudSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,6 +19,7 @@ const Index = () => {
         <ServiceCards />
         <Timeline />
         <OrtoCloudSection />
+        <TestimonialsSection />
       </main>
       <Footer />
     </div>
