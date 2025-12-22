@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import LocationStrip from "@/components/LocationStrip";
 import TrustStats from "@/components/TrustStats";
 import ServiceCards from "@/components/ServiceCards";
 import Timeline from "@/components/Timeline";
@@ -14,7 +13,6 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <LocationStrip />
         <TrustStats />
         <ServiceCards />
         <Timeline />
