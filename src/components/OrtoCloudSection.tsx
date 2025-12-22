@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Cloud, Smartphone, Share2, Shield, Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { Cloud, Smartphone, Share2, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import tabletXray from "@/assets/tablet-xray.png";
 
 const OrtoCloudSection = () => {
   const features = [
@@ -22,37 +22,6 @@ const OrtoCloudSection = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      name: "Dr. Marija Petrović",
-      role: "Stomatolog, Beograd",
-      content: "OrtoCloud nam je drastično ubrzao rad. Snimci su dostupni trenutno i u visokoj rezoluciji.",
-      rating: 5,
-    },
-    {
-      name: "Milan Jovanović",
-      role: "Pacijent",
-      content: "Fantastična usluga! Snimak sam imao na telefonu pre nego što sam izašao iz ordinacije.",
-      rating: 5,
-    },
-    {
-      name: "Dr. Ana Nikolić",
-      role: "Ortodont, Novi Sad",
-      content: "Kefalometrijske analize su precizne i dolaze sa svim potrebnim merenjima. Preporučujem!",
-      rating: 5,
-    },
-  ];
-
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
@@ -70,7 +39,7 @@ const OrtoCloudSection = () => {
                 <Cloud className="w-4 h-4" />
                 <span className="text-sm font-medium">OrtoCloud Platforma</span>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
                 Vaši snimci, <span className="text-primary">uvek dostupni</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-lg">
@@ -105,71 +74,25 @@ const OrtoCloudSection = () => {
             </Button>
           </motion.div>
 
-          {/* Right - Testimonials Carousel */}
+          {/* Right - Tablet Image */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative flex justify-center"
           >
-            <div className="soft-card p-8 md:p-10">
-              <div className="space-y-6">
-                {/* Stars */}
-                <div className="flex gap-1">
-                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <motion.p
-                  key={currentTestimonial}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-xl md:text-2xl font-serif text-foreground leading-relaxed"
-                >
-                  "{testimonials[currentTestimonial].content}"
-                </motion.p>
-
-                {/* Author */}
-                <div>
-                  <p className="font-semibold text-foreground">
-                    {testimonials[currentTestimonial].name}
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    {testimonials[currentTestimonial].role}
-                  </p>
-                </div>
-
-                {/* Navigation */}
-                <div className="flex items-center gap-4 pt-4">
-                  <button
-                    onClick={prevTestimonial}
-                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-accent transition-colors"
-                  >
-                    <ChevronLeft className="w-5 h-5 text-foreground" />
-                  </button>
-                  <div className="flex gap-2">
-                    {testimonials.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentTestimonial(index)}
-                        className={`w-2 h-2 rounded-full transition-all ${
-                          index === currentTestimonial ? "bg-primary w-6" : "bg-muted-foreground/30"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <button
-                    onClick={nextTestimonial}
-                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-accent transition-colors"
-                  >
-                    <ChevronRight className="w-5 h-5 text-foreground" />
-                  </button>
-                </div>
-              </div>
+            <div className="relative">
+              <motion.img
+                src={tabletXray}
+                alt="OrtoCloud na tabletu - dentalni snimak"
+                className="w-full max-w-md rounded-2xl shadow-elevated"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-pink-light/20 rounded-full blur-2xl" />
             </div>
           </motion.div>
         </div>
