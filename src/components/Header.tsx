@@ -11,10 +11,10 @@ import {
 
 const Header = () => {
   const navItems = [
-    { name: "Informacije", href: "#informacije" },
-    { name: "Lokacije", href: "#lokacije" },
-    { name: "Za Doktore", href: "#za-doktore" },
-    { name: "Kontakt", href: "#kontakt" },
+    { name: "Informacije", href: "/informacije", isRoute: true },
+    { name: "Lokacije", href: "#lokacije", isRoute: false },
+    { name: "Za Doktore", href: "#za-doktore", isRoute: false },
+    { name: "Kontakt", href: "#kontakt", isRoute: false },
   ];
 
   const uslugeItems = [
@@ -68,13 +68,23 @@ const Header = () => {
           </DropdownMenu>
 
           {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
-            >
-              {item.name}
-            </a>
+            item.isRoute ? (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
+              >
+                {item.name}
+              </Link>
+            ) : (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
+              >
+                {item.name}
+              </a>
+            )
           ))}
         </nav>
 
