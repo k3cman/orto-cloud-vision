@@ -1,9 +1,28 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MapPin, Cloud } from "lucide-react";
+import { MapPin, Cloud, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
-  const navItems = ["Usluge", "Informacije", "Lokacije", "Za Doktore", "Kontakt"];
+  const navItems = [
+    { name: "Informacije", href: "#informacije" },
+    { name: "Lokacije", href: "#lokacije" },
+    { name: "Za Doktore", href: "#za-doktore" },
+    { name: "Kontakt", href: "#kontakt" },
+  ];
+
+  const uslugeItems = [
+    { name: "2D Snimanje", href: "/usluge?tab=2d" },
+    { name: "3D Snimanje", href: "/usluge?tab=3d" },
+    { name: "Kefalometrija", href: "/usluge?tab=kefa" },
+    { name: "Cenovnik", href: "/usluge?tab=cenovnik" },
+  ];
 
   return (
     <motion.header 
@@ -14,22 +33,47 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-soft">
             <span className="text-primary-foreground font-serif font-bold text-xl">D</span>
           </div>
           <span className="font-serif text-xl font-semibold text-foreground">OrtoDent</span>
-        </div>
+        </Link>
 
         {/* Navigation - Desktop */}
         <nav className="hidden lg:flex items-center gap-8">
+          {/* Usluge Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium">
+                Usluge
+                <ChevronDown className="w-4 h-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent 
+              align="start" 
+              className="w-48 bg-card border border-border shadow-raised"
+            >
+              {uslugeItems.map((item) => (
+                <DropdownMenuItem key={item.name} asChild>
+                  <Link 
+                    to={item.href} 
+                    className="cursor-pointer hover:bg-accent hover:text-accent-foreground"
+                  >
+                    {item.name}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
+              key={item.name}
+              href={item.href}
               className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
             >
-              {item}
+              {item.name}
             </a>
           ))}
         </nav>
@@ -42,7 +86,7 @@ const Header = () => {
           </Button>
           <Button variant="glow" size="default">
             <MapPin className="w-4 h-4 mr-1" />
-            <span className="hidden sm:inline">OrtoCloud</span>
+            <span className="hidden sm:inline">Lokacije</span>
           </Button>
         </div>
       </div>
