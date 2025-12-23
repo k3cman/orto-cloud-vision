@@ -4,8 +4,8 @@ import { MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-girl.png";
 const Hero = () => {
   const locations = ["BEOGRAD", "NOVI SAD", "PANČEVO"];
-  return <section className="min-h-screen pt-20 bg-background relative overflow-hidden flex flex-col">
-      <div className="container mx-auto px-6 lg:py-20 flex-1 py-0">
+  return <section className="min-h-screen pt-20 bg-background relative overflow-hidden flex flex-col py-0">
+      <div className="container mx-auto lg:py-20 flex-1 py-0 pb-0 pt-0 px-0">
         <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
           {/* Left - Text Content */}
           <motion.div initial={{
