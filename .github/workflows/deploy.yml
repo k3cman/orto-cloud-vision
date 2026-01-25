@@ -21,6 +21,9 @@ jobs:
           npm run build
         env:
           BASE_PATH: /orto-cloud-vision/
+      - name: Copy index.html to 404.html for SPA routing
+        run: |
+          cp ./dist/index.html ./dist/404.html
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
