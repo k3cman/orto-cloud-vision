@@ -31,15 +31,15 @@ const Header = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/30"
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-soft">
+          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
             <span className="text-primary-foreground font-bold text-xl">D</span>
           </div>
-          <span className="text-xl font-semibold text-foreground">OrtoDent</span>
+          <span className="text-xl font-bold text-foreground">OrtoDent</span>
         </Link>
 
         {/* Navigation - Desktop */}
@@ -47,7 +47,7 @@ const Header = () => {
           {/* Usluge Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium">
+              <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-semibold">
                 Usluge
                 <ChevronDown className="w-4 h-4" />
               </button>
@@ -60,7 +60,7 @@ const Header = () => {
                 <DropdownMenuItem key={item.name} asChild>
                   <Link 
                     to={item.href} 
-                    className="cursor-pointer hover:bg-accent hover:text-accent-foreground"
+                    className="cursor-pointer hover:bg-muted hover:text-foreground"
                   >
                     {item.name}
                   </Link>
@@ -70,32 +70,21 @@ const Header = () => {
           </DropdownMenu>
 
           {navItems.map((item) => (
-            item.isRoute ? (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
-              >
-                {item.name}
-              </Link>
-            ) : (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
-              >
-                {item.name}
-              </a>
-            )
+            <Link
+              key={item.name}
+              to={item.href}
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-semibold"
+            >
+              {item.name}
+            </Link>
           ))}
         </nav>
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
           <Button variant="glow" size="default" asChild>
-            <Link to="#ortocloud">
-              <Cloud className="w-4 h-4 mr-1" />
-              OrtoCloud
+            <Link to="/lokacije">
+              Lokacije
             </Link>
           </Button>
 
@@ -115,36 +104,25 @@ const Header = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="lg:hidden bg-background border-t border-border/50"
+          className="lg:hidden bg-background border-t border-border/30"
         >
           <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
             <Link
               to="/usluge"
-              className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2"
+              className="text-foreground hover:text-secondary transition-colors text-sm font-semibold py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Usluge
             </Link>
             {navItems.map((item) => (
-              item.isRoute ? (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ) : (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              )
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-foreground hover:text-secondary transition-colors text-sm font-semibold py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
             ))}
           </nav>
         </motion.div>

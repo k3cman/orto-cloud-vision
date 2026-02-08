@@ -24,8 +24,14 @@ const Timeline = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-muted relative overflow-hidden">
+      {/* Subtle diagonal accent */}
+      <div 
+        className="absolute top-0 right-0 w-32 h-[110%] bg-secondary/5"
+        style={{ transform: 'rotate(15deg)' }}
+      />
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,9 +39,10 @@ const Timeline = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-4">
             Kako funkcioniše?
           </h2>
+          <div className="w-16 h-1 gradient-accent-line mx-auto rounded-full" />
         </motion.div>
 
         {/* Timeline Steps */}
@@ -52,13 +59,13 @@ const Timeline = () => {
                 >
                   {/* Number Circle */}
                   <div className="relative">
-                    <div className="w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center bg-background">
-                      <span className="text-3xl font-bold text-primary">{step.number}</span>
+                    <div className="w-20 h-20 rounded-full border-2 border-secondary/30 flex items-center justify-center bg-card">
+                      <span className="text-3xl font-extrabold text-secondary">{step.number}</span>
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <h3 className="text-xl font-semibold text-foreground">
+                    <h3 className="text-xl font-bold text-foreground">
                       {step.title}
                     </h3>
                     <p className="text-muted-foreground text-sm max-w-[200px]">
@@ -89,10 +96,10 @@ const Timeline = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex justify-center mt-12"
           >
-            <div className="inline-flex items-center gap-3 bg-accent/80 rounded-full px-6 py-3 shadow-soft">
-              <Clock className="w-5 h-5 text-primary" />
-              <span className="font-medium text-foreground">
-                Ceo proces traje samo <span className="text-primary font-bold">15 minuta</span>
+            <div className="inline-flex items-center gap-3 bg-card rounded-full px-6 py-3 shadow-soft border border-border/50">
+              <Clock className="w-5 h-5 text-accent" />
+              <span className="font-semibold text-foreground">
+                Ceo proces traje samo <span className="text-secondary font-bold">15 minuta</span>
               </span>
             </div>
           </motion.div>

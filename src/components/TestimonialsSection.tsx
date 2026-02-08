@@ -27,8 +27,14 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-muted relative overflow-hidden">
+      {/* Diagonal accent */}
+      <div 
+        className="absolute -top-10 -left-10 w-40 h-[110%] bg-secondary/5"
+        style={{ transform: 'rotate(-10deg)' }}
+      />
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,9 +43,10 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Šta kažu naši <span className="text-primary">korisnici</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-4">
+            Šta kažu naši <span className="text-secondary">korisnici</span>
           </h2>
+          <div className="w-16 h-1 gradient-accent-line mx-auto rounded-full" />
         </motion.div>
 
         {/* Testimonial Cards */}
@@ -51,17 +58,17 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="soft-card p-8 relative group hover:shadow-raised transition-shadow duration-300"
+              className="accent-card p-8 relative group hover:shadow-raised transition-shadow duration-300"
             >
               {/* Quote Icon */}
               <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Quote className="w-10 h-10 text-primary" />
+                <Quote className="w-10 h-10 text-secondary" />
               </div>
 
               {/* Stars */}
               <div className="flex gap-1 mb-5">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                 ))}
               </div>
 
@@ -72,7 +79,7 @@ const TestimonialsSection = () => {
 
               {/* Author */}
               <div className="pt-4 border-t border-border/50">
-                <p className="font-semibold text-foreground text-sm">
+                <p className="font-bold text-foreground text-sm">
                   {testimonial.name}
                 </p>
                 {testimonial.role && (

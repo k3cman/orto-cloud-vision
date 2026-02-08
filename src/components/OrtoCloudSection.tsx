@@ -23,8 +23,14 @@ const OrtoCloudSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-background relative overflow-hidden">
+      {/* Diagonal accent */}
+      <div 
+        className="absolute -bottom-20 -right-10 w-60 h-[120%] bg-accent/5"
+        style={{ transform: 'rotate(-12deg)' }}
+      />
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,9 +39,10 @@ const OrtoCloudSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Vaši snimci, <span className="text-primary">uvek dostupni!</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground">
+            Vaši snimci, <span className="text-secondary">uvek dostupni!</span>
           </h2>
+          <div className="w-16 h-1 gradient-accent-line mx-auto rounded-full mt-4" />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -63,11 +70,11 @@ const OrtoCloudSection = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-0.5 text-sm">{feature.title}</h3>
+                    <h3 className="font-bold text-foreground mb-0.5 text-sm">{feature.title}</h3>
                     <p className="text-muted-foreground text-sm">{feature.description}</p>
                   </div>
                 </motion.div>
@@ -92,12 +99,19 @@ const OrtoCloudSection = () => {
               <motion.img
                 src={tabletXray}
                 alt="OrtoCloud na tabletu - dentalni snimak"
-                className="w-full max-w-md rounded-2xl shadow-elevated"
+                className="w-full max-w-md rounded-xl shadow-raised"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent rounded-full blur-2xl" />
+              {/* Diagonal accent behind tablet */}
+              <div 
+                className="absolute -top-6 -right-6 w-full h-full bg-secondary/10 rounded-xl -z-10"
+                style={{ transform: 'rotate(3deg)' }}
+              />
+              <div 
+                className="absolute -top-3 -right-3 w-full h-full bg-accent/10 rounded-xl -z-10"
+                style={{ transform: 'rotate(6deg)' }}
+              />
             </div>
           </motion.div>
         </div>
