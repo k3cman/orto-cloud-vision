@@ -201,37 +201,39 @@ const Lokacije = () => {
 
         {/* Desktop Layout */}
         <section className="hidden lg:block">
-          <div className="flex h-[calc(100vh-220px)]">
-            {/* Left: Location List */}
-            <div className="w-[42%] border-r border-border/50 overflow-y-auto">
-              <div className="p-6 space-y-8">
-                {Object.entries(groupedLocations).map(([city, locs]) => (
-                  <div key={city}>
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                      <h2 className="text-lg font-semibold text-foreground">{city}</h2>
-                      <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
-                        {locs.length} {locs.length === 1 ? 'lokacija' : locs.length < 5 ? 'lokacije' : 'lokacija'}
-                      </span>
+          <div className="container mx-auto px-6">
+            <div className="flex h-[calc(100vh-220px)] gap-6 py-6">
+              {/* Left: Location List */}
+              <div className="w-[42%] overflow-y-auto pr-4">
+                <div className="space-y-8">
+                  {Object.entries(groupedLocations).map(([city, locs]) => (
+                    <div key={city}>
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
+                        <h2 className="text-lg font-semibold text-foreground">{city}</h2>
+                        <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
+                          {locs.length} {locs.length === 1 ? 'lokacija' : locs.length < 5 ? 'lokacije' : 'lokacija'}
+                        </span>
+                      </div>
+                      <div className="space-y-3">
+                        {locs.map((loc) => (
+                          <LocationCard
+                            key={loc.id}
+                            location={loc}
+                            isSelected={selectedLocation?.id === loc.id}
+                            onClick={() => setSelectedLocation(loc)}
+                          />
+                        ))}
+                      </div>
                     </div>
-                    <div className="space-y-3">
-                      {locs.map((loc) => (
-                        <LocationCard
-                          key={loc.id}
-                          location={loc}
-                          isSelected={selectedLocation?.id === loc.id}
-                          onClick={() => setSelectedLocation(loc)}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Right: Map */}
-            <div className="w-[58%] p-4">
-              <MapPlaceholder selectedLocation={selectedLocation} />
+              {/* Right: Map */}
+              <div className="w-[58%]">
+                <MapPlaceholder selectedLocation={selectedLocation} />
+              </div>
             </div>
           </div>
         </section>
@@ -245,7 +247,7 @@ const Lokacije = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="px-4 py-6 pb-24 space-y-6"
+                className="container mx-auto px-6 py-6 pb-24 space-y-6"
               >
                 {Object.entries(groupedLocations).map(([city, locs]) => (
                   <div key={city}>
@@ -275,7 +277,7 @@ const Lokacije = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="h-[calc(100vh-140px)] p-4 pb-24"
+                className="container mx-auto px-6 h-[calc(100vh-140px)] py-4 pb-24"
               >
                 <MapPlaceholder selectedLocation={selectedLocation} />
               </motion.div>
