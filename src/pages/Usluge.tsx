@@ -170,39 +170,35 @@ const Tab3D = () => (
           </ul>
         </div>
 
-        {/* Tri veličine polja - stacked cards */}
-        <div className="space-y-3 pt-2">
-          <h4 className="text-lg font-bold text-foreground">Tri veličine polja</h4>
+      </div>
+    </div>
 
-          <div className="soft-card p-4 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <span className="text-primary font-bold text-sm">S</span>
-            </div>
-            <div>
-              <h5 className="font-semibold text-foreground text-sm">Malo Polje (5 × 5 cm)</h5>
-              <p className="text-muted-foreground text-xs mt-0.5">Obuhvata frontalni deo ili jednu stranu gornje ili donje vilice.</p>
-            </div>
+    {/* Tri veličine polja - 3 column row */}
+    <div className="space-y-6">
+      <h4 className="text-xl font-bold text-foreground text-center">Tri veličine polja</h4>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="soft-card p-6 flex flex-col items-center text-center gap-3">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <span className="text-primary font-bold">S</span>
           </div>
+          <h5 className="font-semibold text-foreground text-sm">Malo Polje (5 × 5 cm)</h5>
+          <p className="text-muted-foreground text-xs">Obuhvata frontalni deo ili jednu stranu gornje ili donje vilice.</p>
+        </div>
 
-          <div className="soft-card p-4 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <span className="text-primary font-bold text-sm">M</span>
-            </div>
-            <div>
-              <h5 className="font-semibold text-foreground text-sm">Srednje Polje (8 × 5 cm)</h5>
-              <p className="text-muted-foreground text-xs mt-0.5">Obuhvata celu gornju ili celu donju vilicu.</p>
-            </div>
+        <div className="soft-card p-6 flex flex-col items-center text-center gap-3">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <span className="text-primary font-bold">M</span>
           </div>
+          <h5 className="font-semibold text-foreground text-sm">Srednje Polje (8 × 5 cm)</h5>
+          <p className="text-muted-foreground text-xs">Obuhvata celu gornju ili celu donju vilicu.</p>
+        </div>
 
-          <div className="soft-card p-4 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <span className="text-primary font-bold text-sm">L</span>
-            </div>
-            <div>
-              <h5 className="font-semibold text-foreground text-sm">Veliko Polje (8 × 8 cm / 12 × 9 cm)</h5>
-              <p className="text-muted-foreground text-xs mt-0.5">Obuhvata obe vilice.</p>
-            </div>
+        <div className="soft-card p-6 flex flex-col items-center text-center gap-3">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <span className="text-primary font-bold">L</span>
           </div>
+          <h5 className="font-semibold text-foreground text-sm">Veliko Polje (8 × 8 cm / 12 × 9 cm)</h5>
+          <p className="text-muted-foreground text-xs">Obuhvata obe vilice.</p>
         </div>
       </div>
     </div>
