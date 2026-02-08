@@ -6,95 +6,112 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Phone, Check, Zap, Clock, FileText } from "lucide-react";
 
+const ImagePlaceholder = ({ label, className = "" }: { label: string; className?: string }) => (
+  <div className={`bg-muted/60 rounded-xl flex items-center justify-center ${className}`}>
+    <span className="text-muted-foreground/60 text-sm">{label}</span>
+  </div>
+);
+
 const Tab2D = () => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}
     transition={{ duration: 0.3 }}
-    className="space-y-8"
+    className="space-y-12 max-w-4xl mx-auto"
   >
-    <div className="text-center mb-12">
-      <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">2D Rendgenski Snimci</h2>
-      <p className="text-muted-foreground max-w-2xl mx-auto">
-        Najsavremenija digitalna tehnologija sa minimalnom dozom zračenja.
-      </p>
+    {/* Title */}
+    <div className="text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-foreground">2D rendgenski snimci</h2>
     </div>
 
-    {/* Bento Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {/* Large Card 1 */}
-      <div className="lg:col-span-2 soft-card p-8 hover:shadow-raised transition-all duration-300">
-        <span className="text-xs uppercase tracking-wider text-primary font-medium">Mali snimak</span>
-        <h3 className="text-2xl font-serif text-foreground mt-2 mb-4">Retroalveolarni snimak</h3>
-        <p className="text-muted-foreground">
-          Prikazuje jedan ili više zuba sa njihovim potpornim strukturama u visokoj rezoluciji. 
-          Koristi se za procenu karijesa, stanja korena, periapikalnih promena i parodontalnog tkiva, 
-          kao i za kontrolu nakon terapijskih zahvata.
+    {/* Section 1: Retroalveolarni */}
+    <div className="soft-card p-8 md:p-10 space-y-4">
+      <h3 className="text-xl md:text-2xl font-bold text-foreground">
+        Retroalveolarni i retrokoronalni snimak
+      </h3>
+      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+        Ovi mali, ciljani snimci visoke rezolucije <strong className="text-foreground">dentalni radiogrami</strong>, poznati i kao "<strong className="text-foreground">mali snimci</strong>" prikazuju pojedinačne zube sa njihovim potpornim strukturama. Koriste se za detaljnu procenu stanja zubne krune (otkrivanje karijesa između zuba), analizu korenskih kanala i uočavanje procesa na vrhu korena, kao i za kontrolu nakon terapijskih zahvata.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+        <ImagePlaceholder label="Retroalveolarni snimak" className="h-48" />
+        <ImagePlaceholder label="Retrokoronalni snimak" className="h-48" />
+      </div>
+    </div>
+
+    {/* Section 2: Ortopantomogram */}
+    <div className="space-y-4">
+      <h3 className="text-xl md:text-2xl font-bold text-foreground">Ortopantomogram</h3>
+      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+        Ortopantomogram ("<strong className="text-foreground">ortopan</strong>") je panoramski snimak koji pruža sveobuhvatan pregled obe vilice, svih zuba, villičnih zglobova i okolnih struktura. Kao najtraženiji snimak, predstavlja osnovni alat u početnoj dijagnostici i planiranju terapije u gotovo svim granama stomatologije.
+      </p>
+      <div className="soft-card p-6">
+        <ImagePlaceholder label="Ortopantomogram" className="h-56" />
+      </div>
+    </div>
+
+    {/* Section 3: Lateralni & PA Cefalogram */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="space-y-4">
+        <h3 className="text-lg md:text-xl font-bold text-foreground">Lateralni kefalogram</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          Lateralni kefalogram ("<strong className="text-foreground">telerendgen</strong>") je profilni rendgenski snimak glave koji prikazuje kosti, zube i meka tkiva u bočnoj projekciji. Neophodan je u ortodonciji za analizu odnosa vilica, planiranje terapije Telecom pristupom i praćenje napretka lečenja.
         </p>
-        <div className="mt-6 h-48 bg-muted rounded-xl flex items-center justify-center">
-          <span className="text-muted-foreground text-sm">Retroalveolarni snimak</span>
+        <div className="soft-card p-4">
+          <ImagePlaceholder label="Lateralni kefalogram" className="h-48" />
         </div>
       </div>
 
-      {/* Medium Card 1 */}
-      <div className="soft-card p-6 hover:shadow-raised transition-all duration-300">
-        <h3 className="text-xl font-serif text-foreground mb-3">Lateralni Cefalogram</h3>
-        <p className="text-muted-foreground text-sm">
-          Lateralni cefalogram ("telerendgen") je profilni rendgenski snimak glave koji prikazuje kosti, 
-          zube i meka tkiva u bočnoj projekciji. Neophodan je u ortodonciji za analizu odnosa vilica, 
-          planiranje terapije i praćenje napretka lečenja.
+      <div className="space-y-4">
+        <h3 className="text-lg md:text-xl font-bold text-foreground">PA (posteroanteriorni) kefalogram</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          PA kefalogram je rendgenski snimak glave iz prednje projekcije. Koristi se za procenu simetrije lica, širine vilica i položaja dentoalveolarnih struktura. Posebno je koristan kod planiranja ortodontskih i hirurških intervencija.
         </p>
+        <div className="soft-card p-4">
+          <ImagePlaceholder label="PA kefalogram" className="h-48" />
+        </div>
       </div>
+    </div>
 
-      {/* Large Card 2 */}
-      <div className="lg:col-span-2 soft-card p-8 hover:shadow-raised transition-all duration-300">
-        <span className="text-xs uppercase tracking-wider text-primary font-medium">Ortopan</span>
-        <h3 className="text-2xl font-serif text-foreground mt-2 mb-4">Ortopantomogram</h3>
-        <p className="text-muted-foreground">
-          Ortopantomogram ("ortopan") je panoramski snimak koji pruža pregled obe vilice, svih zuba, 
-          temporomandibularnih zglobova i okolnih struktura. Najtraženiji je snimak od strane stomatologa 
-          jer predstavlja osnovni alat u početnoj dijagnostici i planiranju terapije u gotovo svim granama stomatologije.
+    {/* Section 4: Paranazalne šupljine & TM zglobovi */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="space-y-4">
+        <h3 className="text-lg md:text-xl font-bold text-foreground">Snimak paranazalnih šupljina</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          Ovaj snimak vizualizuje maksilarne, frontalne i druge sinuse, prušajući uvid u njihovu prohodnost i stanje. Pomaže u dijagnostici upalnih procesa, otkrivanju cista ili polipa, kao i u utvrđivanju odnosa između zuba gornje vilice i sinusnog dna pre hirurških zahvata.
         </p>
-        <div className="mt-6 h-48 bg-muted rounded-xl flex items-center justify-center">
-          <span className="text-muted-foreground text-sm">Ortopantomogram</span>
+        <div className="soft-card p-4">
+          <ImagePlaceholder label="Snimak paranazalnih šupljina" className="h-48" />
         </div>
       </div>
 
-      {/* Medium Card 2 */}
-      <div className="soft-card p-6 hover:shadow-raised transition-all duration-300">
-        <h3 className="text-xl font-serif text-foreground mb-3">PA (posteroanteriorni) Cefalogram</h3>
-        <p className="text-muted-foreground text-sm">
-          PA cefalogram je rendgenski snimak glave iz prednje projekcije. Koristi se za procenu simetrije lica, 
-          širine vilica i položaja dentoalveolarnih struktura. Posebno je koristan kod planiranja ortodontskih 
-          i hirurških intervencija.
+      <div className="space-y-4">
+        <h3 className="text-lg md:text-xl font-bold text-foreground">Snimak TM (temporomandibularnih) zglobova</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          Snimak villičnih zglobova omogućava procenu položaja i oblika zglobnih površina u otvorenom i zatvorenom položaju usta. Koristi se kod pacijenata koji osećaju bol, pucketanje ili nemogućnost pri žvakanju, kako bi se precizno dijagnostikovale strukturne, traumatske ili degenerativne promene zgloba.
         </p>
+        <div className="soft-card p-4">
+          <ImagePlaceholder label="Snimak TM zgloba" className="h-48" />
+        </div>
       </div>
+    </div>
 
-      {/* Small Cards Row */}
-      <div className="soft-card p-6 hover:shadow-raised transition-all duration-300">
-        <h3 className="text-lg font-serif text-foreground mb-2">Snimak Paranazalnih Šupljina</h3>
-        <p className="text-muted-foreground text-sm">
-          Snimak paranazalnih šupljina prikazuje maksilarne, frontalne i druge paranazalne sinuse. 
-          Pomaže u dijagnostici upala, cisti, tumora i drugih patoloških promena.
-        </p>
+    {/* Section 5: Tomografske analize */}
+    <div className="space-y-4">
+      <h3 className="text-xl md:text-2xl font-bold text-foreground">Tomografske analize</h3>
+      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+        Tomografska analiza predstavlja specijalne 2D preseke izvučene iz različitih 3D snimaka skeniranih izabranog segmenta vilice. Ovi preseci omogućavaju lekaru da vidi poprečni presek kosti, što je od presudnog značaja za sigurno planiranje i ugradnju implantata.
+      </p>
+      <div className="soft-card p-6">
+        <ImagePlaceholder label="Snimak tomografije sa analizom za implantologiju" className="h-56" />
       </div>
+    </div>
 
-      <div className="soft-card p-6 hover:shadow-raised transition-all duration-300">
-        <h3 className="text-lg font-serif text-foreground mb-2">Snimak TM Zglobova</h3>
-        <p className="text-muted-foreground text-sm">
-          Snimak TM zglobova omogućava procenu položaja i oblika zglobnih površina donje vilice 
-          u zatvorenom i otvorenom položaju usta. Koristi se u dijagnostici disfunkcija, trauma 
-          i degenerativnih promena zgloba.
-        </p>
-      </div>
-
-      <div className="soft-card p-6 hover:shadow-raised transition-all duration-300">
-        <h3 className="text-lg font-serif text-foreground mb-2">Tomografski Snimci</h3>
-        <p className="text-muted-foreground text-sm">
-          Specijalno: 2D preseci izvučeni iz 3D snimka za detaljniju analizu specifičnih regija.
-        </p>
-      </div>
+    {/* Bottom Note */}
+    <div className="text-center pt-4">
+      <p className="text-sm text-muted-foreground">
+        2D snimci se otpremaju na <strong className="text-primary">OrtoCloud</strong>, gde su 2 godine dostupni Vama i Vašem stomatologu.
+      </p>
     </div>
   </motion.div>
 );
