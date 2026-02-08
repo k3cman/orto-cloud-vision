@@ -202,7 +202,7 @@ const Lokacije = () => {
         {/* Desktop Layout */}
         <section className="hidden lg:block">
           <div className="container mx-auto px-6">
-            <div className="flex h-[calc(100vh-220px)] gap-6 py-6">
+            <div className="flex h-[calc(100vh-220px)] gap-6 py-6 pb-16">
               {/* Left: Location List */}
               <div className="w-[42%] overflow-y-auto pr-4">
                 <div className="space-y-8">
