@@ -40,71 +40,59 @@ const Tab2D = () => (
     </div>
 
     {/* Section 2: Ortopantomogram */}
-    <div className="space-y-4">
+    <div className="soft-card p-8 md:p-10 space-y-4">
       <h3 className="text-xl md:text-2xl font-bold text-foreground">Ortopantomogram</h3>
       <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
         Ortopantomogram ("<strong className="text-foreground">ortopan</strong>") je panoramski snimak koji pruža sveobuhvatan pregled obe vilice, svih zuba, villičnih zglobova i okolnih struktura. Kao najtraženiji snimak, predstavlja osnovni alat u početnoj dijagnostici i planiranju terapije u gotovo svim granama stomatologije.
       </p>
-      <div className="soft-card p-6">
-        <ImagePlaceholder label="Ortopantomogram" className="h-56" />
-      </div>
+      <ImagePlaceholder label="Ortopantomogram" className="h-56" />
     </div>
 
     {/* Section 3: Lateralni & PA Cefalogram */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="space-y-4">
+      <div className="soft-card p-6 md:p-8 space-y-4">
         <h3 className="text-lg md:text-xl font-bold text-foreground">Lateralni kefalogram</h3>
         <p className="text-muted-foreground text-sm leading-relaxed">
           Lateralni kefalogram ("<strong className="text-foreground">telerendgen</strong>") je profilni rendgenski snimak glave koji prikazuje kosti, zube i meka tkiva u bočnoj projekciji. Neophodan je u ortodonciji za analizu odnosa vilica, planiranje terapije Telecom pristupom i praćenje napretka lečenja.
         </p>
-        <div className="soft-card p-4">
-          <ImagePlaceholder label="Lateralni kefalogram" className="h-48" />
-        </div>
+        <ImagePlaceholder label="Lateralni kefalogram" className="h-48" />
       </div>
 
-      <div className="space-y-4">
+      <div className="soft-card p-6 md:p-8 space-y-4">
         <h3 className="text-lg md:text-xl font-bold text-foreground">PA (posteroanteriorni) kefalogram</h3>
         <p className="text-muted-foreground text-sm leading-relaxed">
           PA kefalogram je rendgenski snimak glave iz prednje projekcije. Koristi se za procenu simetrije lica, širine vilica i položaja dentoalveolarnih struktura. Posebno je koristan kod planiranja ortodontskih i hirurških intervencija.
         </p>
-        <div className="soft-card p-4">
-          <ImagePlaceholder label="PA kefalogram" className="h-48" />
-        </div>
+        <ImagePlaceholder label="PA kefalogram" className="h-48" />
       </div>
     </div>
 
     {/* Section 4: Paranazalne šupljine & TM zglobovi */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="space-y-4">
+      <div className="soft-card p-6 md:p-8 space-y-4">
         <h3 className="text-lg md:text-xl font-bold text-foreground">Snimak paranazalnih šupljina</h3>
         <p className="text-muted-foreground text-sm leading-relaxed">
           Ovaj snimak vizualizuje maksilarne, frontalne i druge sinuse, prušajući uvid u njihovu prohodnost i stanje. Pomaže u dijagnostici upalnih procesa, otkrivanju cista ili polipa, kao i u utvrđivanju odnosa između zuba gornje vilice i sinusnog dna pre hirurških zahvata.
         </p>
-        <div className="soft-card p-4">
-          <ImagePlaceholder label="Snimak paranazalnih šupljina" className="h-48" />
-        </div>
+        <ImagePlaceholder label="Snimak paranazalnih šupljina" className="h-48" />
       </div>
 
-      <div className="space-y-4">
+      <div className="soft-card p-6 md:p-8 space-y-4">
         <h3 className="text-lg md:text-xl font-bold text-foreground">Snimak TM (temporomandibularnih) zglobova</h3>
         <p className="text-muted-foreground text-sm leading-relaxed">
           Snimak villičnih zglobova omogućava procenu položaja i oblika zglobnih površina u otvorenom i zatvorenom položaju usta. Koristi se kod pacijenata koji osećaju bol, pucketanje ili nemogućnost pri žvakanju, kako bi se precizno dijagnostikovale strukturne, traumatske ili degenerativne promene zgloba.
         </p>
-        <div className="soft-card p-4">
-          <ImagePlaceholder label="Snimak TM zgloba" className="h-48" />
-        </div>
+        <ImagePlaceholder label="Snimak TM zgloba" className="h-48" />
       </div>
     </div>
 
     {/* Section 5: Tomografske analize */}
-    <div className="space-y-4">
+    <div className="soft-card p-8 md:p-10 space-y-4">
       <h3 className="text-xl md:text-2xl font-bold text-foreground">Tomografske analize</h3>
       <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
         Tomografska analiza predstavlja specijalne 2D preseke izvučene iz različitih 3D snimaka skeniranih izabranog segmenta vilice. Ovi preseci omogućavaju lekaru da vidi poprečni presek kosti, što je od presudnog značaja za sigurno planiranje i ugradnju implantata.
       </p>
-      <div className="soft-card p-6">
-        <ImagePlaceholder label="Snimak tomografije sa analizom za implantologiju" className="h-56" />
-      </div>
+      <ImagePlaceholder label="Snimak tomografije sa analizom za implantologiju" className="h-56" />
     </div>
 
     {/* Bottom Note */}
