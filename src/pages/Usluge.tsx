@@ -218,71 +218,58 @@ const TabKefa = () => (
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}
     transition={{ duration: 0.3 }}
-    className="space-y-8"
+    className="space-y-12 max-w-5xl mx-auto"
   >
-    <div className="text-center mb-12">
-      <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Kefalometrijske Analize</h2>
+    {/* Title */}
+    <div className="text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-foreground">Kefalometrijske analize</h2>
     </div>
 
-    <div className="grid lg:grid-cols-2 gap-12 items-center">
-      {/* Left - Image */}
+    {/* Split: Image Left, Text Right */}
+    <div className="grid lg:grid-cols-2 gap-8 items-start">
+      {/* Left - Image Placeholder */}
       <div className="soft-card p-6">
-        <div className="aspect-[4/5] bg-muted rounded-xl flex items-center justify-center overflow-hidden">
+        <div className="aspect-[4/5] bg-muted/50 rounded-xl flex items-center justify-center overflow-hidden">
           <div className="text-center p-8">
-            <div className="w-48 h-48 mx-auto mb-4 bg-primary/5 rounded-full flex items-center justify-center border-2 border-dashed border-primary/30">
-              <FileText className="w-16 h-16 text-primary/50" />
+            <div className="w-32 h-32 mx-auto mb-4 bg-primary/5 rounded-full flex items-center justify-center border-2 border-dashed border-primary/30">
+              <FileText className="w-12 h-12 text-primary/50" />
             </div>
-            <span className="text-muted-foreground text-sm">Kefalometrijski Tracing</span>
+            <span className="text-muted-foreground/60 text-sm">Kefalometrijski Tracing</span>
           </div>
         </div>
       </div>
 
       {/* Right - Content */}
       <div className="space-y-6">
-        <div>
-          <h3 className="text-2xl font-serif text-foreground mb-4">KefAnalize</h3>
-          <p className="text-muted-foreground leading-relaxed">
-            <strong className="text-foreground">Kefalometrijska analiza</strong> je specijalizovana dijagnostička metoda 
-            koja se zasniva na preciznom merenju odnosa kostiju lica, vilica, zuba i mekih tkiva na cefalogramima. 
-            Ove analize najveću primenu imaju u ortodonciji za planiranje terapije i praćenje rezultata lečenja.
-          </p>
-        </div>
+        <h3 className="text-xl font-bold text-primary">KefAnalize</h3>
 
-        <p className="text-muted-foreground leading-relaxed">
-          OrtoDent nudi uslugu izrade kefalometrijskih analiza, putem specijalizovanog programa, 
-          uz kontrolu specijaliste ortodoncije, koji omogućava Vašim stomatolozima da dobiju precizne 
-          i stručno obrađene analize brzo, <strong className="text-foreground">u roku od 48h i brže</strong>.
+        <p className="text-muted-foreground leading-relaxed text-sm">
+          Da bi planiranje Vaše terapije fiksnom protezom bilo potpuno precizno, stomatologu je potreban detaljan uvid u odnos Vaših zuba i struktura lica. Naše digitalne kefalometrijske analize pružaju lekaru neophodne podatke za sigurno i precizno planiranje Vaše terapije.
         </p>
 
         <div className="space-y-3">
-          <h4 className="font-semibold text-foreground flex items-center gap-2">
-            <Zap className="w-5 h-5 text-primary" />
+          <h4 className="font-bold text-foreground flex items-center gap-2 text-sm">
+            <Zap className="w-4 h-4 text-primary" />
             Ključne karakteristike
           </h4>
-          <ul className="space-y-2">
-            {[
-              "Digitalno iscrtavanje (Tracing)",
-              "Dostupno online na OrtoCloudu",
-              "Podrška za sve tipove analiza (Tip 1, Tip 2, Tip 3)",
-            ].map((item, i) => (
-              <li key={i} className="flex items-center gap-3 text-muted-foreground">
-                <Check className="w-4 h-4 text-primary shrink-0" />
-                {item}
-              </li>
-            ))}
+          <ul className="space-y-3">
+            <li className="flex items-start gap-3 text-sm text-muted-foreground">
+              <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <span><strong className="text-foreground">Vrhunska digitalna preciznost:</strong> Koristimo savremeni softver za precizno iscrtavanje ključnih tačaka lica i vilica, čime eliminišemo mogućnost manuelne greške.</span>
+            </li>
+            <li className="flex items-start gap-3 text-sm text-muted-foreground">
+              <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <span><strong className="text-foreground">Efikasniji put do novog osmeha:</strong> Digitalna obrada podataka značajno skraćuje vreme potrebno za izradu plana lečenja, omogućavajući Vašem stomatologu da se brže i više posveti početku Vaše terapije.</span>
+            </li>
+            <li className="flex items-start gap-3 text-sm text-muted-foreground">
+              <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <span><strong className="text-foreground">Digitalna dostupnost:</strong> Vaši rezultati se čuvaju u OrtoCloudu Vašeg stomatologa u digitalnom formatu, omogućavajući brz i jednostavan uvid kad god je to potrebno tokom procesa lečenja.</span>
+            </li>
           </ul>
         </div>
 
-        <div className="p-4 bg-accent rounded-xl">
-          <p className="text-sm text-accent-foreground">
-            <strong>Isporuka:</strong> Analize se isporučuju kao dva dokumenta: 
-            Izveštaj i Snimak sa obeleženim tačkama, ravnima i uglovima.
-          </p>
-        </div>
-
         <p className="text-sm text-muted-foreground">
-          Za izradu KefAnalize potrebni su <strong>cefalogrami (lateralni i PA)</strong> snimljeni 
-          u nekom od OrtoDent rendgen centara, uz napomenu Vašeg stomatologa o željenom tipu analize.
+          Za izradu KefAnalize potrebni su <strong className="text-foreground">kefalogrami (lateralni i PA)</strong> snimljeni u nekom od OrtoDent rendgen centara, uz napomenu Vašeg stomatologa o željenom tipu analize.
         </p>
       </div>
     </div>
