@@ -2,94 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ortodent Soft UI Design System - Warm Modern Aesthetic */
+/* Ortodent Print Design System - Bold Geometric Aesthetic */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
 
 @layer base {
   :root {
-    /* Warm Off-White Background */
-    --background: 40 20% 98%;
-    --foreground: 240 10% 20%;
+    /* Clean White Background */
+    --background: 0 0% 100%;
+    --foreground: 350 30% 12%;
 
-    /* Card - Pure white to pop on cream */
+    /* Card - White */
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 20%;
+    --card-foreground: 350 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 20%;
+    --popover-foreground: 350 30% 12%;
 
-    /* Primary - Deep Pink/Magenta Brand Color */
-    --primary: 340 75% 50%;
+    /* Primary - Deep Maroon/Burgundy (#800020) */
+    --primary: 345 100% 25%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Soft elevated white */
-    --secondary: 0 0% 100%;
-    --secondary-foreground: 240 10% 20%;
+    /* Secondary - Vibrant Red */
+    --secondary: 348 83% 47%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Muted - Subtle cream tones */
-    --muted: 40 15% 94%;
-    --muted-foreground: 240 5% 45%;
+    /* Muted - Light warm grey */
+    --muted: 20 10% 95%;
+    --muted-foreground: 350 10% 45%;
 
-    /* Accent - Light pink tint */
-    --accent: 340 60% 95%;
-    --accent-foreground: 340 75% 40%;
+    /* Accent - Warm Orange */
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 10% 90%;
-    --input: 40 10% 90%;
-    --ring: 340 75% 50%;
+    --border: 20 10% 90%;
+    --input: 20 10% 90%;
+    --ring: 345 100% 25%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
     /* Custom Ortodent tokens */
-    --cream: 40 20% 97%;
-    --pink-glow: 340 75% 50%;
-    --pink-light: 340 60% 95%;
-    --zinc-dark: 240 10% 20%;
-    
-    /* Soft UI Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(340 75% 50% / 0.15);
-    --shadow-raised: 0 8px 30px -8px hsl(240 10% 20% / 0.1), 0 2px 8px -2px hsl(240 10% 20% / 0.05);
-    --shadow-glow: 0 8px 25px -5px hsl(340 75% 50% / 0.35);
-    --shadow-card: 0 10px 40px -10px hsl(240 10% 20% / 0.08);
+    --maroon: 345 100% 25%;
+    --crimson: 348 83% 47%;
+    --warm-orange: 25 95% 55%;
+    --golden: 40 95% 55%;
+    --charcoal: 350 20% 15%;
 
     /* Gradients */
-    --gradient-pink: linear-gradient(135deg, hsl(340, 75%, 50%) 0%, hsl(350, 80%, 60%) 100%);
-    --gradient-pink-overlay: linear-gradient(to top, hsl(340, 75%, 35%, 0.95) 0%, hsl(340, 75%, 45%, 0.7) 40%, transparent 100%);
-    --gradient-cream: linear-gradient(180deg, hsl(40, 20%, 98%) 0%, hsl(40, 15%, 95%) 100%);
+    --gradient-brand: linear-gradient(135deg, hsl(345, 100%, 25%) 0%, hsl(348, 83%, 47%) 50%, hsl(25, 95%, 55%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(25, 95%, 55%) 0%, hsl(40, 95%, 55%) 100%);
+    --gradient-diagonal: linear-gradient(135deg, hsl(348, 83%, 47%) 0%, hsl(25, 95%, 55%) 50%, hsl(40, 95%, 55%) 100%);
+    --gradient-maroon: linear-gradient(135deg, hsl(345, 100%, 25%) 0%, hsl(348, 83%, 47%) 100%);
+    --gradient-card-accent: linear-gradient(90deg, hsl(345, 100%, 25%) 0%, hsl(25, 95%, 55%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(345 100% 25% / 0.12);
+    --shadow-raised: 0 8px 30px -8px hsl(350 20% 15% / 0.12), 0 2px 8px -2px hsl(350 20% 15% / 0.06);
+    --shadow-glow: 0 8px 25px -5px hsl(348 83% 47% / 0.35);
+    --shadow-card: 0 10px 40px -10px hsl(350 20% 15% / 0.08);
   }
 
   .dark {
-    --background: 240 10% 10%;
-    --foreground: 40 20% 98%;
+    --background: 350 20% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 240 10% 15%;
-    --card-foreground: 40 20% 98%;
+    --card: 350 20% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 240 10% 15%;
-    --popover-foreground: 40 20% 98%;
+    --popover: 350 20% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 340 75% 55%;
+    --primary: 345 100% 30%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 10% 20%;
-    --secondary-foreground: 40 20% 98%;
+    --secondary: 348 83% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 10% 20%;
-    --muted-foreground: 40 10% 65%;
+    --muted: 350 15% 18%;
+    --muted-foreground: 20 10% 65%;
 
-    --accent: 340 50% 25%;
-    --accent-foreground: 340 60% 85%;
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 10% 20%;
-    --input: 240 10% 20%;
-    --ring: 340 75% 55%;
+    --border: 350 15% 20%;
+    --input: 350 15% 20%;
+    --ring: 345 100% 30%;
   }
 }
 
@@ -103,64 +106,133 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Montserrat', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
   }
 }
 
 @layer components {
-  /* Soft UI Button Styles */
-  .btn-glow {
-    @apply relative overflow-hidden transition-all duration-300;
-    box-shadow: var(--shadow-glow);
+  /* Geometric Diagonal Background */
+  .diagonal-bg {
+    position: relative;
+    overflow: hidden;
   }
 
-  .btn-glow:hover {
-    box-shadow: 0 12px 35px -5px hsl(340 75% 50% / 0.5);
-    transform: translateY(-2px);
+  .diagonal-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 70%;
+    height: 200%;
+    background: var(--gradient-diagonal);
+    transform: rotate(-20deg);
+    z-index: 0;
+    opacity: 0.9;
   }
 
-  .btn-raised {
-    @apply relative transition-all duration-300;
-    box-shadow: var(--shadow-raised);
+  .diagonal-bg::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 45%;
+    height: 180%;
+    background: var(--gradient-warm);
+    transform: rotate(-25deg);
+    z-index: 1;
+    opacity: 0.85;
   }
 
-  .btn-raised:hover {
-    box-shadow: 0 12px 40px -10px hsl(240 10% 20% / 0.15);
-    transform: translateY(-2px);
+  /* Diagonal Section Divider */
+  .diagonal-divider {
+    position: relative;
   }
 
-  /* Service Card Gradient Overlay */
-  .card-gradient-overlay {
-    background: var(--gradient-pink-overlay);
+  .diagonal-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: hsl(var(--background));
+    clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%);
+    z-index: 2;
   }
 
-  /* Soft Card */
-  .soft-card {
-    @apply bg-card rounded-2xl;
+  /* Card with gradient top border */
+  .accent-card {
+    @apply bg-card rounded-xl relative overflow-hidden;
     box-shadow: var(--shadow-card);
+  }
+
+  .accent-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-card-accent);
+  }
+
+  /* Soft Card - Updated */
+  .soft-card {
+    @apply bg-card rounded-xl relative overflow-hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .soft-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-card-accent);
   }
 
   /* Timeline connector */
   .timeline-connector {
     @apply h-0.5 flex-1 mx-4;
-    background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.3) 100%);
+    background: var(--gradient-card-accent);
+  }
+
+  /* Angular clip sections */
+  .clip-diagonal-top {
+    clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .clip-diagonal-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
   }
 }
 
 @layer utilities {
+  .text-gradient-brand {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-brand);
+  }
+
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-warm);
+  }
+
+  /* Keep backward compatibility */
   .text-gradient-pink {
     @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-pink);
+    background-image: var(--gradient-maroon);
   }
 
   .bg-cream {
-    background-color: hsl(var(--cream));
+    background-color: hsl(var(--muted));
   }
 
   .shadow-soft {
@@ -177,5 +249,9 @@
 
   .shadow-card {
     box-shadow: var(--shadow-card);
+  }
+
+  .gradient-accent-line {
+    background: var(--gradient-card-accent);
   }
 }

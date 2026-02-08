@@ -42,12 +42,12 @@ const AnimatedStat = ({ value, label, delay }: StatProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="soft-card p-8 md:p-10 text-center space-y-2"
+      className="accent-card p-8 md:p-10 text-center space-y-2"
     >
-      <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+      <span className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gradient-brand">
         {displayValue}
       </span>
-      <p className="text-muted-foreground font-medium text-sm">{label}</p>
+      <p className="text-muted-foreground font-semibold text-sm">{label}</p>
     </motion.div>
   );
 };

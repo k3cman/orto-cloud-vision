@@ -69,7 +69,7 @@ const MapPlaceholder = ({ selectedLocation }: { selectedLocation: Location | nul
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <div className={`w-4 h-4 rounded-full border-2 border-card shadow-md transition-colors duration-300 ${
-                isSelected ? 'bg-primary w-5 h-5' : 'bg-primary/60'
+                isSelected ? 'bg-secondary w-5 h-5' : 'bg-secondary/60'
               }`} />
               {isSelected && (
                 <motion.div
@@ -89,8 +89,8 @@ const MapPlaceholder = ({ selectedLocation }: { selectedLocation: Location | nul
       {/* Center label */}
       {!selectedLocation && (
         <div className="text-center z-10 p-6">
-          <Map className="w-12 h-12 text-primary/40 mx-auto mb-3" />
-          <p className="text-muted-foreground text-sm font-medium">Izaberite lokaciju za prikaz na mapi</p>
+          <Map className="w-12 h-12 text-secondary/40 mx-auto mb-3" />
+          <p className="text-muted-foreground text-sm font-semibold">Izaberite lokaciju za prikaz na mapi</p>
         </div>
       )}
     </div>
@@ -107,19 +107,19 @@ const LocationCard = ({
   onClick: () => void;
 }) => {
   const cityColor = location.city === "Beograd" 
-    ? "bg-primary/10 text-primary" 
+    ? "bg-secondary/10 text-secondary" 
     : location.city === "Novi Sad" 
-      ? "bg-accent text-accent-foreground" 
+      ? "bg-accent/10 text-accent" 
       : "bg-muted text-muted-foreground";
 
   return (
     <motion.div
       layout
       onClick={onClick}
-      className={`soft-card p-5 cursor-pointer transition-all duration-300 border-2 ${
+      className={`accent-card p-5 cursor-pointer transition-all duration-300 border-2 ${
         isSelected 
-          ? 'border-primary/40 shadow-glow' 
-          : 'border-transparent hover:border-primary/10 hover:shadow-raised'
+          ? 'border-secondary/40 shadow-glow' 
+          : 'border-transparent hover:border-secondary/10 hover:shadow-raised'
       }`}
       whileTap={{ scale: 0.98 }}
     >
@@ -130,20 +130,20 @@ const LocationCard = ({
             {location.city}
           </span>
         </div>
-        <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+        <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-1" />
       </div>
 
       <div className="space-y-2 mb-4">
         <p className="text-sm text-muted-foreground flex items-start gap-2">
-          <MapPin className="w-4 h-4 text-primary/50 mt-0.5 flex-shrink-0" />
+          <MapPin className="w-4 h-4 text-secondary/50 mt-0.5 flex-shrink-0" />
           {location.address}
         </p>
-        <a href={`tel:${location.phone.replace(/\s/g, '')}`} className="text-sm text-muted-foreground flex items-center gap-2 hover:text-primary transition-colors">
-          <Phone className="w-4 h-4 text-primary/50 flex-shrink-0" />
+        <a href={`tel:${location.phone.replace(/\s/g, '')}`} className="text-sm text-muted-foreground flex items-center gap-2 hover:text-secondary transition-colors">
+          <Phone className="w-4 h-4 text-secondary/50 flex-shrink-0" />
           {location.phone}
         </a>
-        <a href={`mailto:${location.email}`} className="text-sm text-muted-foreground flex items-center gap-2 hover:text-primary transition-colors">
-          <Mail className="w-4 h-4 text-primary/50 flex-shrink-0" />
+        <a href={`mailto:${location.email}`} className="text-sm text-muted-foreground flex items-center gap-2 hover:text-secondary transition-colors">
+          <Mail className="w-4 h-4 text-secondary/50 flex-shrink-0" />
           {location.email}
         </a>
       </div>

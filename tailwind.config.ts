@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
-        serif: ['Roboto', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
+        serif: ['Montserrat', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -23,10 +23,11 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        cream: "hsl(var(--cream))",
-        "pink-glow": "hsl(var(--pink-glow))",
-        "pink-light": "hsl(var(--pink-light))",
-        "zinc-dark": "hsl(var(--zinc-dark))",
+        maroon: "hsl(var(--maroon))",
+        crimson: "hsl(var(--crimson))",
+        "warm-orange": "hsl(var(--warm-orange))",
+        golden: "hsl(var(--golden))",
+        charcoal: "hsl(var(--charcoal))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
