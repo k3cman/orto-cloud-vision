@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
-import heroImage from "@/assets/hero-girl-dark.png";
+import heroImage from "@/assets/hero-girl.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
