@@ -42,37 +42,35 @@ const AnimatedStat = ({ value, label, delay }: StatProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="text-center space-y-2"
+      className="soft-card p-8 md:p-10 text-center space-y-2"
     >
-      <span className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground">
+      <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
         {displayValue}
       </span>
-      <p className="text-muted-foreground font-medium">{label}</p>
+      <p className="text-muted-foreground font-medium text-sm">{label}</p>
     </motion.div>
   );
 };
 
 const TrustStats = () => {
   const stats = [
-    { value: "900+", label: "Ordinacija" },
-    { value: "2M+", label: "Snimaka" },
-    { value: "15", label: "Godina Iskustva" },
+    { value: "13", label: "Lokacija" },
+    { value: "500K", label: "Klijenata" },
+    { value: "17", label: "Godina Iskustva" },
   ];
 
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="soft-card p-12 md:p-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-            {stats.map((stat, index) => (
-              <AnimatedStat
-                key={stat.label}
-                value={stat.value}
-                label={stat.label}
-                delay={index * 0.2}
-              />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
+          {stats.map((stat, index) => (
+            <AnimatedStat
+              key={stat.label}
+              value={stat.value}
+              label={stat.label}
+              delay={index * 0.2}
+            />
+          ))}
         </div>
       </div>
     </section>
