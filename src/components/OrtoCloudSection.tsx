@@ -23,8 +23,21 @@ const OrtoCloudSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+            Vaši snimci, <span className="text-primary">uvek dostupni!</span>
+          </h2>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - OrtoCloud Features */}
           <motion.div
@@ -32,22 +45,15 @@ const OrtoCloudSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-6"
           >
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full">
-                <Cloud className="w-4 h-4" />
-                <span className="text-sm font-medium">OrtoCloud Platforma</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-                Vaši snimci, <span className="text-primary">uvek dostupni</span>
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-lg">
-                Pristupite vašim dentalnim snimcima bilo kad, bilo gde. Sigurno, brzo, jednostavno.
-              </p>
-            </div>
+            <p className="text-muted-foreground text-lg max-w-lg">
+              Pristupite vašim snimcima bilo kad, bilo gde.
+              <br />
+              Sigurno, brzo i jednostavno sa našom OrtoCloud platformom.
+            </p>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
@@ -57,11 +63,11 @@ const OrtoCloudSection = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shadow-soft flex-shrink-0">
-                    <feature.icon className="w-6 h-6 text-primary" />
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
+                    <h3 className="font-semibold text-foreground mb-0.5 text-sm">{feature.title}</h3>
                     <p className="text-muted-foreground text-sm">{feature.description}</p>
                   </div>
                 </motion.div>
@@ -70,7 +76,7 @@ const OrtoCloudSection = () => {
 
             <Button variant="glow" size="lg">
               <Cloud className="w-5 h-5 mr-2" />
-              Pristupite OrtoCloud-u
+              Više o OrtoCloudu
             </Button>
           </motion.div>
 
@@ -90,9 +96,8 @@ const OrtoCloudSection = () => {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
-              {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-pink-light/20 rounded-full blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent rounded-full blur-2xl" />
             </div>
           </motion.div>
         </div>

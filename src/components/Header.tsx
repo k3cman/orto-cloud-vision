@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MapPin, Cloud, ChevronDown } from "lucide-react";
+import { Cloud, ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,10 +11,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const navItems = [
     { name: "Informacije", href: "/informacije", isRoute: true },
     { name: "Lokacije", href: "#lokacije", isRoute: false },
-    { name: "Za Doktore", href: "/za-doktore", isRoute: true },
+    { name: "Za Stomatologe", href: "/za-doktore", isRoute: true },
     { name: "Kontakt", href: "#kontakt", isRoute: false },
   ];
 
@@ -35,9 +38,9 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-soft">
-            <span className="text-primary-foreground font-serif font-bold text-xl">D</span>
+            <span className="text-primary-foreground font-bold text-xl">D</span>
           </div>
-          <span className="font-serif text-xl font-semibold text-foreground">OrtoDent</span>
+          <span className="text-xl font-semibold text-foreground">OrtoDent</span>
         </Link>
 
         {/* Navigation - Desktop */}
@@ -88,18 +91,65 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* CTA Buttons */}
+        {/* Right Side */}
         <div className="flex items-center gap-3">
-          <Button variant="outline-soft" size="default" className="hidden sm:inline-flex">
-            <Cloud className="w-4 h-4 mr-1" />
-            OrtoCloud Login
+          <Button variant="glow" size="default" asChild>
+            <Link to="#ortocloud">
+              <Cloud className="w-4 h-4 mr-1" />
+              OrtoCloud
+            </Link>
           </Button>
-          <Button variant="glow" size="default">
-            <MapPin className="w-4 h-4 mr-1" />
-            <span className="hidden sm:inline">Lokacije</span>
-          </Button>
+
+          {/* Mobile menu toggle */}
+          <button
+            className="lg:hidden text-foreground p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          className="lg:hidden bg-background border-t border-border/50"
+        >
+          <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
+            <Link
+              to="/usluge"
+              className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Usluge
+            </Link>
+            {navItems.map((item) => (
+              item.isRoute ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              )
+            ))}
+          </nav>
+        </motion.div>
+      )}
     </motion.header>
   );
 };
