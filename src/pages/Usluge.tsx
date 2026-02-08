@@ -110,90 +110,108 @@ const Tab3D = () => (
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}
     transition={{ duration: 0.3 }}
-    className="space-y-8"
+    className="space-y-12 max-w-5xl mx-auto"
   >
-    <div className="text-center mb-12">
-      <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">
+    {/* Title */}
+    <div className="text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-foreground">
         3D/CBCT <span className="text-primary">(Cone Beam Computed Tomography)</span>
       </h2>
-      <p className="text-muted-foreground max-w-3xl mx-auto">
-        Trodimenzionalni snimci koji pružaju detaljne prostorne informacije. 
-        Zlatni standard za implantologiju, ortodonciju, endodonciju i oralnu hirurgiju.
-      </p>
     </div>
 
+    {/* Split: Image Left, Text Right */}
     <div className="grid lg:grid-cols-2 gap-8 items-start">
-      {/* Left - 3D Image Card */}
-      <div className="relative soft-card overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
-        <div className="relative p-8">
-          <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-2xl flex items-center justify-center overflow-hidden">
-            <div className="text-center p-8">
-              <div className="w-32 h-32 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
-                <span className="text-5xl">🦷</span>
-              </div>
-              <span className="text-muted-foreground">3D CBCT Prikaz</span>
+      {/* Left - 3D Image Placeholder */}
+      <div className="soft-card p-8">
+        <div className="aspect-[4/5] bg-muted/50 rounded-2xl flex items-center justify-center">
+          <div className="text-center p-8">
+            <div className="w-28 h-28 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+              <span className="text-5xl">🦷</span>
             </div>
+            <span className="text-muted-foreground/60 text-sm">3D CBCT Prikaz</span>
           </div>
-          {/* Glass overlay effect */}
-          <div className="absolute inset-0 bg-card/10 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         </div>
       </div>
 
-      {/* Right - Field of View Cards */}
-      <div className="space-y-4">
-        <h3 className="text-xl font-serif text-foreground mb-6">Tri veličine polja</h3>
-        
-        <div className="soft-card p-6 border-l-4 border-primary hover:shadow-raised transition-all duration-300">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+      {/* Right - Content */}
+      <div className="space-y-6">
+        <h3 className="text-lg font-bold text-primary">
+          3D/CBCT – Zlatni standard dijagnostike
+        </h3>
+
+        <p className="text-muted-foreground leading-relaxed text-sm">
+          CBCT tehnologija koristi konusni snop rendgenskih zraka za dobijanje preciznog 3D prikaza Vaših zuba i vilica. Za razliku od klasičnog skenera (CT), CBCT koristi neuporedivo manje doze zračenja, čineći snimanje maksimalno bezbednim.
+        </p>
+        <p className="text-muted-foreground leading-relaxed text-sm">
+          Za Vas to znači precizniju dijagnozu, bezbedniju intervenciju i plan lečenja potpuno prilagođen Vašoj anatomiji.
+        </p>
+
+        <div className="space-y-3">
+          <h4 className="font-bold text-primary text-sm">
+            Gde se sve koristi 3D snimak?
+          </h4>
+          <ul className="space-y-2 text-sm text-muted-foreground">
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-1">•</span>
+              <span><strong className="text-foreground">Implantologija i hirurgija:</strong> Sigurno postavljanje implantata i bezbedno vađenje umnjaka uz jasan uvid u položaj nerava.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-1">•</span>
+              <span><strong className="text-foreground">Endodoncija:</strong> Precizno otkrivanje kanala i upalnih procesa na vrhu korena zuba.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-1">•</span>
+              <span><strong className="text-foreground">Ortodoncija i TMZ:</strong> Analiza koštanih struktura lica i jasan prikaz viličnih zglobova (temporomandibularni zglob).</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-1">•</span>
+              <span><strong className="text-foreground">Maksilofacijalna hirurgija:</strong> Detekcija trauma, preloma i patoloških promena u koštanom tkivu.</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Tri veličine polja - stacked cards */}
+        <div className="space-y-3 pt-2">
+          <h4 className="text-lg font-bold text-foreground">Tri veličine polja</h4>
+
+          <div className="soft-card p-4 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
               <span className="text-primary font-bold text-sm">S</span>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground">Malo Polje (5 × 5 cm)</h4>
-              <p className="text-muted-foreground text-sm mt-1">
-                Obuhvata frontalni deo ili jednu stranu gornje ili donje vilice. 
-                Idealno za pojedinačne implante i endodontske tretmane.
-              </p>
+              <h5 className="font-semibold text-foreground text-sm">Malo Polje (5 × 5 cm)</h5>
+              <p className="text-muted-foreground text-xs mt-0.5">Obuhvata frontalni deo ili jednu stranu gornje ili donje vilice.</p>
             </div>
           </div>
-        </div>
 
-        <div className="soft-card p-6 border-l-4 border-primary/70 hover:shadow-raised transition-all duration-300">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+          <div className="soft-card p-4 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
               <span className="text-primary font-bold text-sm">M</span>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground">Srednje Polje (8.5 × 5 cm)</h4>
-              <p className="text-muted-foreground text-sm mt-1">
-                Obuhvata celu gornju ili celu donju vilicu. 
-                Pogodno za višestruke implante i analizu jedne vilice.
-              </p>
+              <h5 className="font-semibold text-foreground text-sm">Srednje Polje (8 × 5 cm)</h5>
+              <p className="text-muted-foreground text-xs mt-0.5">Obuhvata celu gornju ili celu donju vilicu.</p>
             </div>
           </div>
-        </div>
 
-        <div className="soft-card p-6 border-l-4 border-primary/50 hover:shadow-raised transition-all duration-300">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+          <div className="soft-card p-4 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
               <span className="text-primary font-bold text-sm">L</span>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground">Veliko Polje (8.5 × 8.5 cm / 9 × 12 cm)</h4>
-              <p className="text-muted-foreground text-sm mt-1">
-                Obuhvata obe vilice (Full Face). Za kompletne rehabilitacije, 
-                ortodontske analize i maksilofacijalnu hirurgiju.
-              </p>
+              <h5 className="font-semibold text-foreground text-sm">Veliko Polje (8 × 8 cm / 12 × 9 cm)</h5>
+              <p className="text-muted-foreground text-xs mt-0.5">Obuhvata obe vilice.</p>
             </div>
           </div>
         </div>
-
-        <p className="text-sm text-muted-foreground mt-6 p-4 bg-muted/50 rounded-xl">
-          3D snimci se izdaju na CD-u i otpremaju na <strong className="text-primary">OrtoCloud</strong>, 
-          gde su 15 dana dostupni Vama i Vašem stomatologu. Pristup je moguć isključivo putem računara.
-        </p>
       </div>
+    </div>
+
+    {/* Bottom Note */}
+    <div className="p-4 bg-muted/50 rounded-xl text-center">
+      <p className="text-sm text-muted-foreground">
+        3D snimci se izdaju na CD-u i otpremaju na <strong className="text-primary">OrtoCloud</strong>, gde su 15 dana dostupni Vama i Vašem stomatologu. Pristup je moguć isključivo putem računara.
+      </p>
     </div>
   </motion.div>
 );
