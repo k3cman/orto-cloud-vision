@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = [
-    { label: "Lokacije i Kontakt", href: "/lokacije", isRoute: true },
+    { label: "Lokacije", href: "/lokacije", isRoute: true },
+    { label: "Kontakt", href: "/kontakt", isRoute: true },
     { label: "Cenovnik", href: "/usluge/cenovnik", isRoute: true },
     { label: "Za Doktore", href: "/za-doktore", isRoute: true },
     { label: "Informacije", href: "/informacije", isRoute: true },

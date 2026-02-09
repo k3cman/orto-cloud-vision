@@ -196,7 +196,7 @@ const Lokacije = () => {
               className="max-w-2xl"
             >
               <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-3">
-                Lokacije <span className="text-gradient-pink">&</span> Kontakt
+                Lokacije
               </h1>
               <p className="text-muted-foreground text-lg">
                 Pronađite najbližu Ortodent lokaciju. Bez zakazivanja — dođite kada Vam odgovara.

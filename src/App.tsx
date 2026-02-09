@@ -8,6 +8,7 @@ import UslugeLayout, { Usluge2D, Usluge3D, UslugeKefa, UslugeCenovnik } from "./
 import Informacije from "./pages/Informacije";
 import ZaDoktore from "./pages/ZaDoktore";
 import Lokacije from "./pages/Lokacije";
+import Kontakt from "./pages/Kontakt";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/informacije" element={<Informacije />} />
           <Route path="/za-doktore" element={<ZaDoktore />} />
           <Route path="/lokacije" element={<Lokacije />} />
+          <Route path="/kontakt" element={<Kontakt />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
