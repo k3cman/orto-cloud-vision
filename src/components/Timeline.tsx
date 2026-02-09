@@ -26,9 +26,9 @@ const Timeline = () => {
   return (
     <section className="py-20 bg-muted relative overflow-hidden">
       {/* Subtle diagonal accent */}
-      <div 
+      <div
         className="absolute top-0 right-0 w-32 h-[110%] bg-secondary/5"
-        style={{ transform: 'rotate(15deg)' }}
+        style={{ transform: "rotate(15deg)" }}
       />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -49,18 +49,20 @@ const Timeline = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
             {steps.map((step, index) => (
-              <div key={step.number} className="flex items-center flex-1 w-full">
+              <div key={step.number} className="flex items-center">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className="flex flex-col items-center text-center space-y-4 flex-shrink-0"
+                  className="flex flex-col items-center text-center space-y-4"
                 >
                   {/* Number Circle */}
                   <div className="relative">
                     <div className="w-20 h-20 rounded-full border-2 border-secondary/30 flex items-center justify-center bg-card">
-                      <span className="text-3xl font-extrabold text-secondary">{step.number}</span>
+                      <span className="text-3xl font-extrabold text-secondary">
+                        {step.number}
+                      </span>
                     </div>
                   </div>
 
@@ -73,17 +75,6 @@ const Timeline = () => {
                     </p>
                   </div>
                 </motion.div>
-
-                {/* Connector Line */}
-                {index < steps.length - 1 && (
-                  <motion.div
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
-                    className="hidden md:block timeline-connector origin-left"
-                  />
-                )}
               </div>
             ))}
           </div>
@@ -99,7 +90,8 @@ const Timeline = () => {
             <div className="inline-flex items-center gap-3 bg-card rounded-full px-6 py-3 shadow-soft border border-border/50">
               <Clock className="w-5 h-5 text-accent" />
               <span className="font-semibold text-foreground">
-                Ceo proces traje samo <span className="text-secondary font-bold">15 minuta</span>
+                Ceo proces traje samo{" "}
+                <span className="text-secondary font-bold">15 minuta</span>
               </span>
             </div>
           </motion.div>

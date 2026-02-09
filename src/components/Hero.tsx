@@ -12,27 +12,27 @@ const Hero = () => {
       {/* Diagonal Geometric Background */}
       <div className="absolute top-0 right-0 w-[65%] h-full z-0 hidden lg:block">
         {/* Main diagonal stripe - crimson/red */}
-        <div 
+        <div
           className="absolute -top-[20%] -right-[10%] w-[80%] h-[140%] bg-secondary opacity-90"
-          style={{ transform: 'rotate(-20deg)' }}
+          style={{ transform: "rotate(-20deg)" }}
         />
         {/* Orange stripe */}
-        <div 
+        <div
           className="absolute -top-[10%] -right-[5%] w-[50%] h-[130%] bg-accent opacity-85"
-          style={{ transform: 'rotate(-25deg)' }}
+          style={{ transform: "rotate(-25deg)" }}
         />
         {/* Golden accent stripe */}
-        <div 
+        <div
           className="absolute -top-[5%] right-0 w-[30%] h-[120%] bg-golden opacity-80"
-          style={{ transform: 'rotate(-28deg)' }}
+          style={{ transform: "rotate(-28deg)" }}
         />
       </div>
 
       {/* Mobile diagonal bg */}
       <div className="absolute top-0 right-0 w-full h-[40%] z-0 lg:hidden">
-        <div 
+        <div
           className="absolute -top-[30%] -right-[30%] w-[120%] h-[200%] bg-secondary opacity-20"
-          style={{ transform: 'rotate(-20deg)' }}
+          style={{ transform: "rotate(-20deg)" }}
         />
       </div>
 
@@ -53,9 +53,10 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <span className="italic text-secondary">Više</span> od snimka.
+                <span className="text-secondary">Više</span> od snimka.
                 <br />
-                Vizija <span className="text-secondary font-extrabold">osmeha.</span>
+                Vizija{" "}
+                <span className="text-secondary font-extrabold">osmeha.</span>
               </motion.h1>
 
               <motion.p
@@ -118,7 +119,10 @@ const Hero = () => {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
               {locations.map((location, index) => (
-                <div key={location} className="flex items-center gap-4 md:gap-8">
+                <div
+                  key={location}
+                  className="flex items-center gap-4 md:gap-8"
+                >
                   <motion.span
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}

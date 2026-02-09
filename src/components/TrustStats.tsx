@@ -55,7 +55,7 @@ const AnimatedStat = ({ value, label, delay }: StatProps) => {
 const TrustStats = () => {
   const stats = [
     { value: "13", label: "Lokacija" },
-    { value: "500K", label: "Klijenata" },
+    { value: "500K", label: "Snimaka" },
     { value: "17", label: "Godina Iskustva" },
   ];
 

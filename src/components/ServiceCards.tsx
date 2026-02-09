@@ -70,19 +70,19 @@ const ServiceCards = () => {
       image: service2d,
       title: "2D snimanje",
       subtitle: "Ortopan, dentalni radiogram, kefalogram...",
-      href: "/usluge?tab=2d",
+      href: "/usluge/2d",
     },
     {
       image: service3d,
       title: "3D snimanje",
       subtitle: "CBCT",
-      href: "/usluge?tab=3d",
+      href: "/usluge/3d",
     },
     {
       image: serviceCephalometry,
       title: "Kefalometrijske analize",
       subtitle: "Analize za ortodonte",
-      href: "/usluge?tab=kefa",
+      href: "/usluge/kefalometrija",
     },
   ];
 

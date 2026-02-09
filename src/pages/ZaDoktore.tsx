@@ -162,7 +162,7 @@ const ZaDoktore = () => {
                       <Cloud className="w-3 h-3" />
                       {store}
                     </div>
-                  )
+                  ),
                 )}
               </div>
             </motion.div>
@@ -184,38 +184,65 @@ const ZaDoktore = () => {
             {/* Left - Text */}
             <motion.div {...fadeInUp} className="space-y-6">
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Pruža mogućnost prikaza Vaše dijagnoze iz svakog ugla i u
-                visokoj rezoluciji. CBCT snimci su zlatni standard za
-                implantologiju, endodonciju, ortodonciju, oralnu hirurgiju i TMZ
-                dijagnostiku.
+                Pružite svojim pacijentima najviši standard dijagnostike uz naše
+                3D snimke. Naši centri su opremljeni{" "}
+                <strong className="text-foreground"> Vatech</strong> aparatima,
+                uključujući i najnovije modele sa specijalizovanim programima za
+                endodonciju visoke rezolucije. Korišćenjem vodeće svetske
+                tehnologije i{" "}
+                <strong className="text-foreground">Ez3D-i</strong> softvera,
+                dobijate kristalno jasne snimke koji omogućavaju precizno
+                planiranje implantata, hirurških zahvata i endodontskih
+                tretmana.
               </p>
 
               <div className="space-y-3">
                 <h4 className="font-bold text-primary text-sm flex items-center gap-2">
                   <Zap className="w-4 h-4" />
-                  Zašto birati nas?
+                  Zašto birati Ortodent?
                 </h4>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span>
-                      Koristimo CBCT tehnologiju koja daje precizne 3D prikaze
-                      sa minimalnom dozom zračenja, čineći snimanje bezbednim i
-                      za najmlađe pacijente.
+                      <strong className="text-foreground">
+                        Vatech Green CT Tehnologija
+                      </strong>{" "}
+                      : Maksimalan kvalitet slike uz najnižu dozu zračenja na
+                      tržištu.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span>
-                      Uz brzu digitalnu obradu, snimci su dostupni na
-                      OrtoCloudu u roku od nekoliko minuta.
+                      <strong className="text-foreground">
+                        Napredna redukcija artefakata
+                      </strong>
+                      : Naši aparati koriste inteligentne algoritme za
+                      uklanjanje „odsjaja” oko metalnih krunica i implantata,
+                      pružajući značajno čistiji snimak regije od vitalnog
+                      značaja za endodonciju i protetiku.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span>
-                      Tri veličine polja: 5×5 cm, 8×5 cm i 8×8 cm / 9×12 cm za
-                      širok spektar indikacija.
+                      <strong className="text-foreground">
+                        Ultra-fast Scan
+                      </strong>
+                      : Proces skeniranja traje svega par sekundi, čime se
+                      eliminišu artefakti pokreta i osigurava savršeno oštra
+                      slika iz prvog pokušaja.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span>
+                      <strong className="text-foreground">
+                        Brza digitalna dostava
+                      </strong>
+                      : Svi 3D snimci su Vam dostupni putem OrtoClouda odmah
+                      nakon snimanja.
                     </span>
                   </li>
                 </ul>
@@ -250,18 +277,15 @@ const ZaDoktore = () => {
               Moćna tehnologija koju ćete savladati za 5 minuta.
             </h2>
             <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
-              3D/CBCT interfejs je dostupan svim korisnicima, korišćenjem
-              besplatnog DICOM pregledača kao što je RadiAnt koji možete preuzeti
-              sa Interneta. Jednostavan je za korišćenje, a obuka traje svega 5
-              minuta.
+              Ez3D-i softver je dizajniran da bude intuitivan, omogućavajući Vam
+              da odmah pristupite svim neophodnim dijagnostičkim alatima.
+              Napredni interfejs prilagođen je potrebama stomatologa, čineći
+              navigaciju kroz 3D snimak jednostavnom i efikasnom.
             </p>
           </motion.div>
 
           {/* Video Placeholder */}
-          <motion.div
-            {...fadeInUp}
-            className="max-w-3xl mx-auto mb-8"
-          >
+          <motion.div {...fadeInUp} className="max-w-3xl mx-auto mb-8">
             <div className="aspect-video bg-muted rounded-2xl overflow-hidden shadow-card relative group cursor-pointer">
               <div className="absolute inset-0 flex items-center justify-center bg-foreground/5 group-hover:bg-foreground/10 transition-colors">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
@@ -279,10 +303,12 @@ const ZaDoktore = () => {
             <motion.div {...fadeInUp} className="soft-card p-6 text-center">
               <Download className="w-6 h-6 text-primary mx-auto mb-3" />
               <h4 className="font-bold text-foreground text-sm mb-1">
-                Vodich tutotijali
+                Vatech tutotijali
               </h4>
               <p className="text-muted-foreground text-xs">
-                Step-by-step video uputstva za korišćenje 3D DICOM pregledača.
+                Iskoristite selekciju kratkih video uputstava sa zvaničnih
+                Vatech YouTube kanala kako biste se lakše upoznali sa svim
+                funkcionalnostima softvera.
               </p>
             </motion.div>
             <motion.div
@@ -295,7 +321,9 @@ const ZaDoktore = () => {
                 Naša podrška
               </h4>
               <p className="text-muted-foreground text-xs">
-                Kontaktirajte naš tim za podršku za pomoć sa 3D softverom.
+                Naš tim je tu da Vam pruži pomoć oko instalacije softvera, prvih
+                koraka u radu ili bilo kojih tehničkih pitanja koja možete
+                imati.
               </p>
             </motion.div>
           </div>
@@ -306,9 +334,42 @@ const ZaDoktore = () => {
             className="text-center text-xs text-muted-foreground space-y-1 max-w-3xl mx-auto"
           >
             <p>
-              Preporučeni softver za pregled: <strong className="text-primary">RadiAnt</strong>,{" "}
-              <strong className="text-primary">Horos</strong> (macOS),{" "}
-              <strong className="text-primary">3D Slicer</strong>
+              <strong className="text-foreground">Osnove vizuelizacije:</strong>{" "}
+              <a
+                href="https://www.youtube.com/watch?v=GThBiiMpnQM"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Coronalni, sagitalni, axial preseci i VR rekonstrukcija
+              </a>
+            </p>
+            <p>
+              <strong className="text-foreground">
+                Iscrtavanje panoramske krive:
+              </strong>{" "}
+              <a
+                href="https://www.youtube.com/watch?v=q7IM6VH3FvY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Automatsko vs. manuelno iscrtavanje
+              </a>
+            </p>
+            <p>
+              <strong className="text-foreground">Endodoncija:</strong>{" "}
+              <a
+                href="https://www.youtube.com/watch?v=vs-ZZgbCPQg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Napredna Endo analiza
+              </a>
+            </p>
+            <p>
+              <strong className="text-foreground">
+                Implantologija i hirurgija:
+              </strong>{" "}
+              Mapiranje kanala, planiranje implantata, provera gustine kosti
             </p>
           </motion.div>
         </div>
@@ -350,11 +411,13 @@ const ZaDoktore = () => {
               <h3 className="text-xl font-bold text-primary">KefAnalize</h3>
 
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Da bi planiranje Vaše terapije fiksnom protezom bilo potpuno
-                precizno, stomatologu je potreban detaljan uvid u odnos Vaših
-                zuba i struktura lica. Naše digitalne kefalometrijske analize
-                pružaju lekaru neophodne podatke za sigurno i precizno
-                planiranje Vaše terapije.
+                Zaboravite na ručno ucrtavanje tačaka i trošenje dragocenih sati
+                na proračune. Uz pomoć vodećeg svetskog sofvera{" "}
+                <strong className="text-foreground">AudaxCeph</strong> i stručni
+                nadzor naših doktora stomatologije, dobijate najpreciznije
+                analize koje stede Vaše vreme i omogućavaju da se fokusirajte na
+                ono što je najbitnije – planiranje savršenog osmeha Vaših
+                pacijenata.
               </p>
 
               <div className="space-y-3">
@@ -367,19 +430,28 @@ const ZaDoktore = () => {
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span>
                       <strong className="text-foreground">
-                        Vrhunska digitalna preciznost.
+                        Standardizovan kvalitet:
                       </strong>{" "}
-                      Koristimo savremeni softver za precizno iscrtavanje.
+                      Doslednost u merenjima bez obzira na kompleksnost slučaja.
                     </span>
                   </li>
                   <li className="flex items-start gap-3 text-sm text-muted-foreground">
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span>
                       <strong className="text-foreground">
-                        Digitalna dostupnost.
+                        Digitalna preciznost:
                       </strong>{" "}
-                      Vaši rezultati su dostupni na OrtoCloudu u digitalnom
-                      formatu.
+                      Automatska detekcija struktura uz manuelnu proveru svakog
+                      parametra.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span>
+                      <strong className="text-foreground">
+                        Kompletna dokumentacija:
+                      </strong>{" "}
+                      Dobijate spremne dokumente za digitalni karton pacijenta.
                     </span>
                   </li>
                 </ul>
@@ -393,40 +465,28 @@ const ZaDoktore = () => {
                 </h4>
                 <div className="grid grid-cols-3 gap-4 text-xs text-muted-foreground">
                   <div>
-                    <p className="font-bold text-foreground mb-1">
-                      Standardna
-                    </p>
-                    <p>Ricketts</p>
-                    <p>Steiner</p>
-                    <p>McNamara</p>
-                    <p>Wits Procena</p>
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground mb-1">
-                      Ortodontska
-                    </p>
-                    <p>Tweed</p>
-                    <p>Jarabak</p>
+                    <p>Beograd</p>
+                    <p>Bjork</p>
                     <p>Downs</p>
-                    <p>Holdaway</p>
+                    <p>Eastman</p>
+                    <p>Eastman</p>
                   </div>
                   <div>
-                    <p className="font-bold text-foreground mb-1">
-                      Specijalna / Hirurška
-                    </p>
-                    <p>Soft-tissue</p>
-                    <p>Arnett-Gunson</p>
-                    <p>Burstone</p>
+                    <p>Jarabak</p>
+                    <p>McLaughlin</p>
+                    <p>McNamara</p>
+                    <p>Ricketts Ieteral</p>
+                    <p>Roth-Jarabak</p>
+                  </div>
+                  <div>
+                    <p>Sassouni plus</p>
+                    <p>Schwarz</p>
+                    <p>Segner-Hasund</p>
+                    <p>Steiner</p>
+                    <p>Tweed-Merrifield itd.</p>
                   </div>
                 </div>
               </div>
-
-              <p className="text-xs text-muted-foreground">
-                Vaši snimci i rezultati se čuvaju na{" "}
-                <strong className="text-primary">OrtoCloudu</strong> i
-                dostupni su Vama i Vašem stomatologu u digitalnom formatu za
-                pregled i preuzimanje.
-              </p>
             </motion.div>
           </div>
         </div>
@@ -445,10 +505,7 @@ const ZaDoktore = () => {
               </p>
             </div>
 
-            <form
-              onSubmit={handleSubmit}
-              className="soft-card p-8 space-y-5"
-            >
+            <form onSubmit={handleSubmit} className="soft-card p-8 space-y-5">
               <div>
                 <Label htmlFor="name" className="text-foreground text-sm">
                   Ime i Prezime <span className="text-primary">*</span>

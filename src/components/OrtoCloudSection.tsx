@@ -13,21 +13,21 @@ const OrtoCloudSection = () => {
     {
       icon: Share2,
       title: "Lako deljenje",
-      description: "Podelite snimke sa vašim stomatologom jednim klikom",
+      description: "Podelite snimke sa vašim stomatologom",
     },
     {
       icon: Shield,
       title: "Sigurno čuvanje",
-      description: "Vaši snimci su zaštićeni i dostupni godinama",
+      description: "Vaši snimci su zaštićeni i bezbedno arhivirani",
     },
   ];
 
   return (
     <section className="py-20 bg-background relative overflow-hidden">
       {/* Diagonal accent */}
-      <div 
+      <div
         className="absolute -bottom-20 -right-10 w-60 h-[120%] bg-accent/5"
-        style={{ transform: 'rotate(-12deg)' }}
+        style={{ transform: "rotate(-12deg)" }}
       />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -74,8 +74,12 @@ const OrtoCloudSection = () => {
                     <feature.icon className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground mb-0.5 text-sm">{feature.title}</h3>
-                    <p className="text-muted-foreground text-sm">{feature.description}</p>
+                    <h3 className="font-bold text-foreground mb-0.5 text-sm">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {feature.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -101,16 +105,20 @@ const OrtoCloudSection = () => {
                 alt="OrtoCloud na tabletu - dentalni snimak"
                 className="w-full max-w-md rounded-xl shadow-raised"
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
               {/* Diagonal accent behind tablet */}
-              <div 
+              <div
                 className="absolute -top-6 -right-6 w-full h-full bg-secondary/10 rounded-xl -z-10"
-                style={{ transform: 'rotate(3deg)' }}
+                style={{ transform: "rotate(3deg)" }}
               />
-              <div 
+              <div
                 className="absolute -top-3 -right-3 w-full h-full bg-accent/10 rounded-xl -z-10"
-                style={{ transform: 'rotate(6deg)' }}
+                style={{ transform: "rotate(6deg)" }}
               />
             </div>
           </motion.div>

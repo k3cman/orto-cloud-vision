@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const quickLinks = [
     { label: "Lokacije i Kontakt", href: "/lokacije", isRoute: true },
-    { label: "Cenovnik", href: "/usluge?tab=cenovnik", isRoute: true },
+    { label: "Cenovnik", href: "/usluge/cenovnik", isRoute: true },
     { label: "Za Doktore", href: "/za-doktore", isRoute: true },
     { label: "Informacije", href: "/informacije", isRoute: true },
   ];
 
   const services = [
-    { label: "2D Snimanje", href: "/usluge?tab=2d", isRoute: true },
-    { label: "3D CBCT", href: "/usluge?tab=3d", isRoute: true },
-    { label: "Kefalometrija", href: "/usluge?tab=kefa", isRoute: true },
+    { label: "2D Snimanje", href: "/usluge/2d", isRoute: true },
+    { label: "3D CBCT", href: "/usluge/3d", isRoute: true },
+    { label: "Kefalometrija", href: "/usluge/kefalometrija", isRoute: true },
     { label: "OrtoCloud", href: "#ortocloud", isRoute: false },
   ];
 

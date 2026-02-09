@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Phone, Mail, Map, List, Clock } from "lucide-react";
+import { MapPin, Phone, Map, List, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,29 +11,29 @@ interface Location {
   name: string;
   address: string;
   phone: string;
-  email: string;
+  phone2?: string;
+  workingHours?: string;
   lat: number;
   lng: number;
 }
 
 const locations: Location[] = [
-  // Beograd (8 lokacija)
-  { id: 1, city: "Beograd", name: "Ortodent Vračar", address: "Bulevar Kralja Aleksandra 78", phone: "+381 11 234 5678", email: "vracar@ortodent.rs", lat: 44.8015, lng: 20.4785 },
-  { id: 2, city: "Beograd", name: "Ortodent Novi Beograd", address: "Bulevar Mihajla Pupina 165", phone: "+381 11 301 2233", email: "novibeograd@ortodent.rs", lat: 44.8186, lng: 20.4177 },
-  { id: 3, city: "Beograd", name: "Ortodent Zemun", address: "Glavna ulica 32", phone: "+381 11 316 4455", email: "zemun@ortodent.rs", lat: 44.8438, lng: 20.4112 },
-  { id: 4, city: "Beograd", name: "Ortodent Voždovac", address: "Vojvode Stepe 285", phone: "+381 11 244 6677", email: "vozdovac@ortodent.rs", lat: 44.7681, lng: 20.4872 },
-  { id: 5, city: "Beograd", name: "Ortodent Čukarica", address: "Požeška 83a", phone: "+381 11 355 8899", email: "cukarica@ortodent.rs", lat: 44.7833, lng: 20.4167 },
-  { id: 6, city: "Beograd", name: "Ortodent Palilula", address: "Takovska 12", phone: "+381 11 322 1100", email: "palilula@ortodent.rs", lat: 44.8125, lng: 20.4698 },
-  { id: 7, city: "Beograd", name: "Ortodent Stari Grad", address: "Knez Mihailova 42", phone: "+381 11 263 4421", email: "starigrad@ortodent.rs", lat: 44.8176, lng: 20.4569 },
-  { id: 8, city: "Beograd", name: "Ortodent Rakovica", address: "Patrisa Lumumbe 55", phone: "+381 11 358 7766", email: "rakovica@ortodent.rs", lat: 44.7572, lng: 20.4508 },
-  // Novi Sad (4 lokacije)
-  { id: 9, city: "Novi Sad", name: "Ortodent Centar NS", address: "Bulevar Oslobođenja 100", phone: "+381 21 450 1122", email: "nscentar@ortodent.rs", lat: 45.2551, lng: 19.8425 },
-  { id: 10, city: "Novi Sad", name: "Ortodent Liman", address: "Narodnog Fronta 23", phone: "+381 21 469 3344", email: "liman@ortodent.rs", lat: 45.2461, lng: 19.8282 },
-  { id: 11, city: "Novi Sad", name: "Ortodent Detelinara", address: "Sentandrejski put 11", phone: "+381 21 895 5566", email: "detelinara@ortodent.rs", lat: 45.2671, lng: 19.8351 },
-  { id: 12, city: "Novi Sad", name: "Ortodent Petrovaradin", address: "Preradovićeva 7", phone: "+381 21 643 7788", email: "petrovaradin@ortodent.rs", lat: 45.2507, lng: 19.8617 },
-  // Pančevo (2 lokacije)
-  { id: 13, city: "Pančevo", name: "Ortodent Centar PА", address: "Vojvode Radomira Putnika 18", phone: "+381 13 345 9900", email: "pancevo@ortodent.rs", lat: 44.8708, lng: 20.6403 },
-  { id: 14, city: "Pančevo", name: "Ortodent Strelište", address: "Žarka Zrenjanina 44", phone: "+381 13 315 2211", email: "streliste@ortodent.rs", lat: 44.8751, lng: 20.6508 },
+  // Beograd
+  { id: 1, city: "Beograd", name: "Vračar", address: "Njegoševa 42", phone: "+381 11 244 05 01", phone2: "+381 62 872 00 46", lat: 44.8015, lng: 20.4785 },
+  { id: 2, city: "Beograd", name: "Zvezdara", address: "Vojvode Šupljikca 37", phone: "+381 11 344 10 44", phone2: "+381 63 846 50 63", lat: 44.8035, lng: 20.5012 },
+  { id: 3, city: "Beograd", name: "Stari Grad", address: "Džordža Vašingtona 21a", phone: "+381 11 323 73 85", phone2: "+381 63 846 50 58", lat: 44.8176, lng: 20.4569 },
+  { id: 4, city: "Beograd", name: "Voždovac", address: "Vojvode Stepe 32, lok.3", phone: "+381 11 396 24 00", phone2: "+381 63 846 50 59", lat: 44.7681, lng: 20.4872 },
+  { id: 5, city: "Beograd", name: "Novi Beograd", address: "Španskih boraca 22v, lok.16", phone: "+381 11 313 23 30", phone2: "+381 62 165 36 64", lat: 44.8186, lng: 20.4177 },
+  { id: 6, city: "Beograd", name: "Banovo Brdo", address: "Blagoja Parovića 25", phone: "+381 11 254 30 87", phone2: "+381 62 840 05 50", lat: 44.7783, lng: 20.4267 },
+  { id: 7, city: "Beograd", name: "Immo Centar", address: "Japanska 5, lok.7", phone: "+381 11 406 21 44", phone2: "+381 62 810 40 49", lat: 44.8125, lng: 20.4698 },
+  { id: 8, city: "Beograd", name: "Stari Merkator", address: "Palmira Toljatija 5, lok.4", phone: "+381 11 312 98 99", phone2: "+381 62 854 91 11", workingHours: "Radno vreme 9–17h. Subotom ne radi.", lat: 44.8150, lng: 20.4520 },
+  { id: 9, city: "Beograd", name: "Cerak", address: "Ratka Mitrovića 150", phone: "+381 11 231 02 44", phone2: "+381 62 144 47 72", lat: 44.7522, lng: 20.4388 },
+  // Novi Sad
+  { id: 10, city: "Novi Sad", name: "Braće Ribnikar", address: "Braće Ribnikar 3", phone: "+381 21 661 166", phone2: "+381 62 871 78 61", lat: 45.2551, lng: 19.8425 },
+  { id: 11, city: "Novi Sad", name: "Hadži Ruvimova", address: "Hadži Ruvimova 52, lok.3", phone: "+381 21 510 036", phone2: "+381 62 148 32 48", lat: 45.2461, lng: 19.8282 },
+  // Pančevo
+  { id: 12, city: "Pančevo", name: "Oslobođenja", address: "Oslobođenja 18a", phone: "+381 13 332 982", phone2: "+381 62 833 30 80", lat: 44.8708, lng: 20.6403 },
+  { id: 13, city: "Pančevo", name: "Braće Jovanovića", address: "Braće Jovanovića 40", phone: "+381 13 231 07 35", phone2: "+381 63 120 89 69", lat: 44.8751, lng: 20.6508 },
 ];
 
 const MapPlaceholder = ({ selectedLocation }: { selectedLocation: Location | null }) => {
@@ -138,20 +138,26 @@ const LocationCard = ({
           <MapPin className="w-4 h-4 text-secondary/50 mt-0.5 flex-shrink-0" />
           {location.address}
         </p>
-        <a href={`tel:${location.phone.replace(/\s/g, '')}`} className="text-sm text-muted-foreground flex items-center gap-2 hover:text-secondary transition-colors">
-          <Phone className="w-4 h-4 text-secondary/50 flex-shrink-0" />
-          {location.phone}
-        </a>
-        <a href={`mailto:${location.email}`} className="text-sm text-muted-foreground flex items-center gap-2 hover:text-secondary transition-colors">
-          <Mail className="w-4 h-4 text-secondary/50 flex-shrink-0" />
-          {location.email}
-        </a>
+        <div className="text-sm text-muted-foreground flex items-start gap-2">
+          <Phone className="w-4 h-4 text-secondary/50 mt-0.5 flex-shrink-0" />
+          <span className="flex flex-wrap items-center gap-x-1">
+            <a href={`tel:${location.phone.replace(/\s/g, '')}`} className="hover:text-secondary transition-colors">{location.phone}</a>
+            {location.phone2 && (
+              <>
+                <span className="text-muted-foreground/70">·</span>
+                <a href={`tel:${location.phone2.replace(/\s/g, '')}`} className="hover:text-secondary transition-colors">{location.phone2}</a>
+              </>
+            )}
+          </span>
+        </div>
       </div>
 
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-          <Clock className="w-3.5 h-3.5" />
-          <span>Pon-Pet 08-20h</span>
+        <div className="flex flex-col gap-0.5">
+          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <Clock className="w-3.5 h-3.5" />
+            <span>{location.workingHours ?? "Radnim danima 8–20h, subotom 9–16h"}</span>
+          </div>
         </div>
         <Button variant="glow" size="sm" className="text-xs h-8 px-4" onClick={(e) => e.stopPropagation()}>
           Zakaži termin

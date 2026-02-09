@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,14 +21,14 @@ const Header = () => {
   ];
 
   const uslugeItems = [
-    { name: "2D Snimanje", href: "/usluge?tab=2d" },
-    { name: "3D Snimanje", href: "/usluge?tab=3d" },
-    { name: "Kefalometrija", href: "/usluge?tab=kefa" },
-    { name: "Cenovnik", href: "/usluge?tab=cenovnik" },
+    { name: "2D Snimanje", href: "/usluge/2d" },
+    { name: "3D Snimanje", href: "/usluge/3d" },
+    { name: "Kefalometrija", href: "/usluge/kefalometrija" },
+    { name: "Cenovnik", href: "/usluge/cenovnik" },
   ];
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -36,10 +37,7 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-xl">D</span>
-          </div>
-          <span className="text-xl font-bold text-foreground">OrtoDent</span>
+          <img src={logo} alt="logo" className="h-10" />
         </Link>
 
         {/* Navigation - Desktop */}
@@ -52,14 +50,14 @@ const Header = () => {
                 <ChevronDown className="w-4 h-4" />
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent 
-              align="start" 
+            <DropdownMenuContent
+              align="start"
               className="w-48 bg-card border border-border shadow-raised"
             >
               {uslugeItems.map((item) => (
                 <DropdownMenuItem key={item.name} asChild>
-                  <Link 
-                    to={item.href} 
+                  <Link
+                    to={item.href}
                     className="cursor-pointer hover:bg-muted hover:text-foreground"
                   >
                     {item.name}
@@ -83,9 +81,7 @@ const Header = () => {
         {/* Right Side */}
         <div className="flex items-center gap-3">
           <Button variant="glow" size="default" asChild>
-            <Link to="/lokacije">
-              Lokacije
-            </Link>
+            <Link to="/lokacije">Lokacije</Link>
           </Button>
 
           {/* Mobile menu toggle */}
@@ -93,7 +89,11 @@ const Header = () => {
             className="lg:hidden text-foreground p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
