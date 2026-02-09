@@ -134,10 +134,11 @@ const ZaDoktore = () => {
               </h2>
               <div className="space-y-3 text-muted-foreground text-sm leading-relaxed">
                 <p>
-                  Šaljite upute direktno kroz aplikaciju. Zaboravite na papire i
-                  telefoniranje. Pratite status snimanja u realnom vremenu.
-                  Pogledajte, preuzmite ili podelite snimke sa kolegama jednim
-                  klikom.
+                  <strong>Šaljite upute online</strong> direktno kroz
+                  aplikaciju. Zaboravite na papire i telefoniranje. Pratite
+                  status snimanja u realnom vremenu.{" "}
+                  <strong>Pogledajte, preuzmite ili podelite</strong> snimke sa
+                  kolegama jednim klikom.
                 </p>
                 <p>
                   Uz web aplikaciju i verzije dostupne na Google Play, App Store
@@ -147,7 +148,7 @@ const ZaDoktore = () => {
               </div>
 
               <Button variant="raised" size="lg">
-                Saznaj više o OrtoCloudu
+                Saznajte više o OrtoCloudu
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
 
@@ -293,9 +294,6 @@ const ZaDoktore = () => {
                 </div>
               </div>
             </div>
-            <p className="text-center text-xs text-muted-foreground mt-3">
-              https://www.youtube.com/watch?v=example
-            </p>
           </motion.div>
 
           {/* Two info cards below video */}
@@ -486,8 +484,22 @@ const ZaDoktore = () => {
                     <p>Tweed-Merrifield itd.</p>
                   </div>
                 </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  KefAnalize se otpremaju na OrtoCloud maksimalno 48h od
+                  trenutka snimanja kefalograma i su dostupne su u vidu dva
+                  dokumenta: Kefalometrijska analiza – detaljan tabelarni prikaz
+                  svih merenja. Kefalometrijski snimak – vizuelni prikaz sa
+                  precizno obeleženim tačkama, ravnima i uglovima.
+                </p>
               </div>
             </motion.div>
+          </div>
+
+          <div className="max-w-5xl mx-auto text-sm mt-4 text-muted-foreground text-center">
+            Zanima Vas kako naše analize mogu unaprediti Vašu svakodnevnu
+            praksu? Tu smo za sva Vaša pitanja. Kontaktirajte nas za više
+            informacija – rado ćemo Vam objasniti proces i pomoći oko prvih
+            koraka.
           </div>
         </div>
       </section>
@@ -526,11 +538,12 @@ const ZaDoktore = () => {
 
               <div>
                 <Label htmlFor="clinic" className="text-foreground text-sm">
-                  Naziv Ordinacije
+                  Naziv Ordinacije <span className="text-primary">*</span>
                 </Label>
                 <Input
                   id="clinic"
                   type="text"
+                  required
                   maxLength={100}
                   value={formData.clinic}
                   onChange={(e) =>

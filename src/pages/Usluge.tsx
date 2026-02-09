@@ -49,13 +49,13 @@ export const Usluge2D = () => (
         Retroalveolarni i retrokoronalni snimak
       </h3>
       <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-        Ovi mali, ciljani snimci visoke rezolucije{" "}
-        <strong className="text-foreground">dentalni radiogrami</strong>,
-        poznati i kao "<strong className="text-foreground">mali snimci</strong>"
-        prikazuju pojedinačne zube sa njihovim potpornim strukturama. Koriste se
-        za detaljnu procenu stanja zubne krune (otkrivanje karijesa između
-        zuba), analizu korenskih kanala i uočavanje procesa na vrhu korena, kao
-        i za kontrolu nakon terapijskih zahvata.
+        Ovi mali, ciljani snimci visoke rezolucije, poznati i kao{" "}
+        <strong className="text-foreground">dentalni radiogrami</strong> ili "
+        <strong className="text-foreground">mali snimci</strong>". Prikazuju
+        pojedinačne zube sa njihovim potpornim strukturama. Koriste se za
+        detaljnu procenu stanja zubne krune (otkrivanje karijesa između zuba),
+        analizu korenskih kanala i uočavanje procesa na vrhu korena, kao i za
+        kontrolu nakon terapijskih zahvata.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
         <ImagePlaceholder label="Retroalveolarni snimak" className="h-48" />
@@ -85,10 +85,12 @@ export const Usluge2D = () => (
           Lateralni kefalogram
         </h3>
         <p className="text-muted-foreground text-sm leading-relaxed">
-          Lateralni kefalogram ("telerendgen") je profilni rendgenski snimak
-          glave koji prikazuje kosti, zube i meka tkiva u bočnoj projekciji.
-          Neophodan je u ortodonciji za analizu odnosa vilica, planiranje
-          terapije fiksnom protezom i praćenje napretka lečenja.
+          Lateralni kefalogram ("
+          <strong className="text-foreground">telerendgen</strong>") je profilni
+          rendgenski snimak glave koji prikazuje kosti, zube i meka tkiva u
+          bočnoj projekciji. Neophodan je u ortodonciji za analizu odnosa
+          vilica, planiranje terapije fiksnom protezom i praćenje napretka
+          lečenja.
         </p>
         <ImagePlaceholder label="Lateralni kefalogram" className="h-48" />
       </div>
@@ -128,7 +130,7 @@ export const Usluge2D = () => (
 
       <div className="soft-card p-6 md:p-8 space-y-4">
         <h3 className="text-lg md:text-xl font-bold text-foreground">
-          Snimak TM (temporomandibularnih) zglobova
+          Snimak TM zglobova
         </h3>
         <p className="text-muted-foreground text-sm leading-relaxed">
           Snimak viličnih zglobova omogućava procenu položaja i oblika zglobnih
@@ -211,7 +213,7 @@ export const Usluge3D = () => (
         <p className="text-muted-foreground leading-relaxed text-sm">
           CBCT tehnologija koristi konusni snop rendgenskih zraka za dobijanje
           preciznog 3D prikaza Vaših zuba i vilica. Za razliku od klasičnog
-          skenera (CT), CBCT korist neuporedivo manje doze zračenja, čineći
+          skenera (CT), CBCT koristi neuporedivo manje doze zračenja, čineći
           snimanje maksimalno bezbednim.
         </p>
         <p className="text-muted-foreground leading-relaxed text-sm">
@@ -394,9 +396,9 @@ export const UslugeKefa = () => (
                 <strong className="text-foreground">
                   Digitalna dostupnost:
                 </strong>{" "}
-                Vaši rezultati se čuvaju u OrtoCloudu Vašeg stomatologa u
-                digitalnom formatu, omogućavajući brz i jednostavan uvid kad god
-                je to potrebno tokom procesa lečenja.
+                Rezultati se čuvaju u OrtoCloudu Vašeg stomatologa u digitalnom
+                formatu, omogućavajući brz i jednostavan uvid kad god je to
+                potrebno tokom procesa lečenja.
               </span>
             </li>
           </ul>
@@ -418,7 +420,7 @@ export const UslugeKefa = () => (
 export const UslugeCenovnik = () => {
   const pricing = {
     "2D SNIMCI": [
-      { name: "Retroalveolarni (RA) snimak", price: "800" },
+      { name: "Retroalveolarni i retrokoronalni snimak", price: "800" },
       { name: "Ortopantomogram", price: "2500" },
       { name: "Lateralni cefalogram", price: "2500" },
       { name: "PA cefalogram", price: "2500" },
@@ -432,10 +434,9 @@ export const UslugeCenovnik = () => {
       { name: "CD", price: "200" },
     ],
     "3D SNIMANJA": [
-      { name: "3D polje 5×5 S", price: "4500" },
-      { name: "3D polje 8×5 M", price: "5500" },
-      { name: "3D polje 8×8 – 9×12 L", price: "6500" },
-      { name: "3D maksilarnih sinusa", price: "6500" },
+      { name: "3D polje 5×5 - S", price: "4500" },
+      { name: "3D polje 8×5 - M", price: "5500" },
+      { name: "3D polje 8×8 / 9×12 - L", price: "6500" },
       { name: "3D TM zglobova", price: "6500" },
     ],
     "KEFALOMETRIJSKE ANALIZE": [{ name: "KefAnalize", price: "1500" }],
@@ -453,9 +454,6 @@ export const UslugeCenovnik = () => {
         <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">
           Cenovnik
         </h2>
-        <p className="text-muted-foreground">
-          Sve cene su izražene uarima (RSD)
-        </p>
       </div>
 
       <div className="max-w-2xl mx-auto space-y-8">
@@ -484,13 +482,10 @@ export const UslugeCenovnik = () => {
           </div>
         ))}
 
-        <div className="p-6 bg-accent rounded-2xl">
-          <p className="text-sm text-accent-foreground leading-relaxed">
-            2D snimci se mogu poslati putem <strong>e-mail</strong>-a i
-            otpremaju na <strong className="text-primary">OrtoCloud</strong>,
-            gde se bezbedno čuvaju 2 godine, i odmah su dostupni Vama i Vašem
-            stomatologu putem aplikacije ili web pregledača – za pregled,
-            preuzimanje i deljenje.
+        <div className="p-6 rounded-2xl">
+          <p className="text-sm leading-relaxed">
+            Plaćanje je moguće izvršiti gotovinom ili platnim karticama,
+            isključivo u dinarskoj protivvrednosti.
           </p>
         </div>
       </div>

@@ -16,7 +16,7 @@ const Header = () => {
 
   const navItems = [
     { name: "Informacije", href: "/informacije", isRoute: true },
-    { name: "Za Stomatologe", href: "/za-doktore", isRoute: true },
+    { name: "Za stomatologe", href: "/za-doktore", isRoute: true },
     { name: "Lokacije", href: "/lokacije", isRoute: true },
     { name: "Kontakt", href: "/kontakt", isRoute: true },
   ];

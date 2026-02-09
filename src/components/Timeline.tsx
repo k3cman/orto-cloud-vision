@@ -7,7 +7,7 @@ const Timeline = () => {
       icon: MapPin,
       number: "1",
       title: "Poseta",
-      description: "Dođite u naš ili centar bez zakazivanja",
+      description: "Dođite u naš centar bez zakazivanja",
     },
     {
       icon: Camera,
@@ -19,7 +19,7 @@ const Timeline = () => {
       icon: FileCheck,
       number: "3",
       title: "Rezultat",
-      description: "Snimke dobijate odmah na OrtoCloud-u",
+      description: "Snimke dobijate odmah na OrtoCloudu",
     },
   ];
 

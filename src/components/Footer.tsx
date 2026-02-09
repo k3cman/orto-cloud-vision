@@ -7,7 +7,7 @@ const Footer = () => {
     { label: "Lokacije", href: "/lokacije", isRoute: true },
     { label: "Kontakt", href: "/kontakt", isRoute: true },
     { label: "Cenovnik", href: "/usluge/cenovnik", isRoute: true },
-    { label: "Za Doktore", href: "/za-doktore", isRoute: true },
+    { label: "Za stomatologe", href: "/za-doktore", isRoute: true },
     { label: "Informacije", href: "/informacije", isRoute: true },
   ];
 
@@ -36,12 +36,15 @@ const Footer = () => {
           >
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
-                <span className="text-secondary-foreground font-bold text-xl">D</span>
+                <span className="text-secondary-foreground font-bold text-xl">
+                  D
+                </span>
               </div>
               <span className="text-xl font-bold">OrtoDent</span>
             </div>
             <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs">
-              Lider u dentalnoj radiologiji sa preko 17 godina iskustva. Najsavremenija tehnologija za vašu dijagnostiku.
+              Lider u dentalnoj radiologiji sa preko 17 godina iskustva.
+              Najsavremenija tehnologija za vašu dijagnostiku.
             </p>
             <div className="flex gap-3 pt-2">
               <a
@@ -129,7 +132,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-6 py-6">
           <p className="text-center text-sm text-primary-foreground/40">
-            © 2025 OrtoDent. Sva prava zadržana.
+            © 2026 OrtoDent. Sva prava zadržana.
           </p>
         </div>
       </div>

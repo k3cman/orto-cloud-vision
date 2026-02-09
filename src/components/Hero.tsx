@@ -67,7 +67,7 @@ const Hero = () => {
               >
                 Najpreciznija 2D i 3D dijagnostika. Minimalno zračenje.
                 <br />
-                Rezultati dostupni odmah na OrtoCloud-u.
+                Rezultati dostupni odmah na OrtoCloud.
               </motion.p>
             </div>
 

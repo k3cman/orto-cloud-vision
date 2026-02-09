@@ -43,12 +43,12 @@ const processSteps = [
   {
     number: "3",
     title: "Priprema",
-    text: "Uklanjanje metalnih predmeta (nakit, naočare) i srodnih proteza.",
+    text: "Uklanjanje metalnih predmeta (nakit, naočare) i mobilnih proteza.",
   },
   {
     number: "4",
     title: "Pozicioniranje",
-    text: "Precizno pozicioniranje uz pomoć radnog zaposlenog.",
+    text: "Precizno pozicioniranje uz pomoć našeg zaposlenog.",
   },
   {
     number: "5",
@@ -66,39 +66,39 @@ const faqItems = [
   {
     question: "Zašto mi je potreban snimak zuba?",
     answer:
-      "Snimak zuba omogućava stomatologu detaljan uvid u stanje vaših zuba, vilica i okolnih struktura koji nije moguć golim okom. To je ključan dijagnostički alat za planiranje terapije, otkrivanje karijesa, procenu stanja korena i mnoge druge procedure.",
+      "Snimak zuba pomaže stomatologu da precizno utvrdi stanje zuba i desni, jer se ne mogu svi problemi videti golim okom. Koristi se za otkrivanje ranog karijesa, procenu stanja korena zuba i kosti, uočavanje upala kao i mnogih drugih stanja. Zahvaljujući snimku, Vaš stomatolog uspostavlja tačnu dijagnozu, planira adekvatan vid lečenja i prati tok samog lečenja.",
   },
   {
     question:
       "Da li mi je potreban uput stomatologa i da li mora biti u papirnoj formi?",
     answer:
-      "Uput nije obavezan, ali je poželjan radi preciznosti snimanja. Prihvatamo i digitalne upute – možete ih pokazati sa telefona. Ukoliko nemate uput, naši tehničari će vam pomoći da odaberete odgovarajući tip snimka.",
+      "Uput nije neophodan, ali je poželjan jer u njemu Vaš stomatolog precizno navodi vrstu snimka koja mu je potrebna kako biste dobili dijagnostiku koja je za Vas u tom trenutku od najveće koristi. Vaš stomatolog može preko naše OrtoCloud aplikacije poslati i online uput direktno digitalnim putem, čime se eliminiše potreba za nošenjem papira i sprečava mogućnost greške ili gubitka uputa.",
   },
   {
     question: "Da li je snimanje zuba bezbedno?",
     answer:
-      "Da, ovo je svetski priznata dijagnostička metoda. Naši moderni digitalni aparati višestruko smanjuju dozu zračenja u odnosu na starije metode. Doza zračenja pri dentalnom snimanju je veoma niska i smatra se potpuno bezbednom.",
+      "Da, snimanje zuba je bezbedno. Zahvaljujući digitalnoj tehnologiji, nivo zračenja je sveden na minimum. Doza koju primite prilikom jednog snimanja ekvivalentna je prirodnom zračenju kojem ste izloženi tokom samo par dana svakodnevnog života. Naši aparati su najnovije generacije i dizajnirani su da maksimalno štite pacijenta, a uz to se svako snimanje obavlja u skladu sa svim propisanim bezbednosnim merama.",
   },
   {
     question: "Da li deca smeju da snimaju zube?",
     answer:
-      "Da, deca mogu da snimaju zube. Koristimo poseban režim rada za decu gde je zračenje dodatno smanjeno i do 70%. Snimanje je brzo i bezbolno, a naši tehničari su obučeni za rad sa najmlađim pacijentima.",
+      "Da, snimanje zuba kod dece je potpuno bezbedno i od velike važnosti u pravilnom planiranju ortodontske terapije (ispravljanja zuba) kao i praćenju rasta zuba i vilica. Kod dece se koriste posebno prilagođene, niže doze zračenja, u skladu sa uzrastom i građom deteta. U našim rendgen centrima, uz savremene digitalne aparate i zaštitne mere, Vaše dete ćemo snimiti bezbolno, brzo i bezbedno.",
   },
   {
     question: "Da li trudnice i dojilje smeju da snimaju zube?",
     answer:
-      "Generalno se preporučuje izbegavanje rendgenskog snimanja tokom trudnoće, osim u hitnim slučajevima. Dojilje mogu bezbedno da snimaju zube. Za sve nedoumice, konsultujte se sa vašim lekarom pre dolaska.",
+      "Savet je da se sve elektivne stomatološke dijagnostičke i terapijske procedure odlože za period nakon porođaja. Međutim, ukoliko je stomatološko lečenje neophodno, u hitnim slučajevima, snimanje se može uraditi uz dostavljen uput stomatologa i potpisanu saglasnost trudnice. Rendgenski snimci zuba imaju veoma malu dozu zračenja, a uz upotrebu zaštitne olovne kecelje, rizik za Vašu bebu je gotovo nepostojeći. Za dojilje, dijagnostičko snimanje zuba je potpuno bezbedno i ne zahteva prekid u dojenju.",
   },
   {
     question:
       "Kada i na koji način dobijam svoj snimak i kako mogu da ga podelim sa stomatologom?",
     answer:
-      "Snimak dobijate odmah nakon snimanja putem OrtoCloud platforme. Dobićete korisničko ime i lozinku kojima možete pristupiti snimku sa bilo kog uređaja, pregledati ga, preuzeti ili podeliti sa vašim stomatologom jednim klikom.",
+      "Vaš snimak je dostupan odmah nakon završetka procesa snimanja putem Vašeg ličnog OrtoCloud naloga. Stomatolog koji Vas je uputio na snimanje dobija pristup snimku putem naše platforme čim se proces završi. Putem aplikacije snimak možete preuzeti na svoj uređaj ili ga proslediti bilo kom drugom stomatologu putem e-maila. Na Vaš zahtev, snimke možemo izraditi i u fizičkom obliku (film ili CD) uz odgovarajuću doplatu.",
   },
   {
     question: "Koliko dugo je snimak zuba validan za stomatologa?",
     answer:
-      "Validnost snimka zavisi od tipa i svrhe snimanja. Generalno, 2D snimci su relevantni 6-12 meseci, dok 3D snimci mogu biti korisni i duže. Vaš stomatolog će proceniti da li je potreban novi snimak u zavisnosti od planiranog tretmana.",
+      "Snimak zuba je validan dok se stanje u ustima značajno ne promeni. Za odrasle, često se smatra da je snimak validan 6-12 meseci, dok kod dece, zbog rasta i razvoja zuba, snimci mogu brzo zastareti i obično se rade po potrebi. Ako se pojave novi simptomi ili planira veća intervencija, stomatolog može zatražiti novi snimak.",
   },
 ];
 
@@ -272,11 +272,7 @@ const Informacije = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
                 Posetite nas još danas.
               </h2>
-              <Button
-                variant="raised"
-                size="lg"
-                asChild
-              >
+              <Button variant="raised" size="lg" asChild>
                 <Link to="/lokacije">
                   <MapPin className="w-5 h-5 mr-2" />
                   Pronađi lokaciju

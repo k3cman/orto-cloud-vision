@@ -13,7 +13,7 @@ const OrtoCloudSection = () => {
     {
       icon: Share2,
       title: "Lako deljenje",
-      description: "Podelite snimke sa vašim stomatologom",
+      description: "Podelite snimke sa Vašim stomatologom",
     },
     {
       icon: Shield,
