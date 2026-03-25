@@ -21,12 +21,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
 
-    /* Primary - Deep Magenta (#C21B5F) - headings, gradient start */
-    --primary: 340 76% 43%;
+    /* Primary (#E20E60) - headings, gradient start */
+    --primary: 337 88% 47%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Vibrant Pink (#EA1F62) - buttons, icons, active states */
-    --secondary: 342 82% 52%;
+    /* Secondary (#952862) - buttons, icons, active states */
+    --secondary: 328 58% 37%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted - Very light grey (#F8F8F8 header, #EEEEEE hero) */
@@ -42,7 +42,7 @@
 
     --border: 0 0% 87%;                /* #DEDEDE - subtle grey */
     --input: 0 0% 87%;
-    --ring: 340 76% 43%;
+    --ring: 337 88% 47%;
 
     --radius: 0.75rem;
 
@@ -77,10 +77,10 @@
     --popover: 0 0% 21%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 340 76% 48%;
+    --primary: 337 88% 52%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 342 82% 55%;
+    --secondary: 328 58% 45%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 22%;
@@ -94,7 +94,7 @@
 
     --border: 0 0% 28%;
     --input: 0 0% 28%;
-    --ring: 340 76% 48%;
+    --ring: 337 88% 52%;
   }
 }
 

@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const quickLinks = [
     { label: "Lokacije", href: "/lokacije", isRoute: true },
     { label: "Kontakt", href: "/kontakt", isRoute: true },
-    { label: "Cenovnik", href: "/usluge/cenovnik", isRoute: true },
+    { label: "Cenovnik", href: "/cenovnik", isRoute: true },
     { label: "Za stomatologe", href: "/za-doktore", isRoute: true },
     { label: "Informacije", href: "/informacije", isRoute: true },
   ];
@@ -34,14 +35,9 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="space-y-4"
           >
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
-                <span className="text-secondary-foreground font-bold text-xl">
-                  D
-                </span>
-              </div>
-              <span className="text-xl font-bold">OrtoDent</span>
-            </div>
+            <Link to="/" className="inline-flex items-center gap-2">
+              <img src={logo} alt="logo" className="h-10" />
+            </Link>
             <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs">
               Lider u dentalnoj radiologiji sa preko 17 godina iskustva.
               Najsavremenija tehnologija za vašu dijagnostiku.

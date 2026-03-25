@@ -40,7 +40,7 @@ const OrtoCloudSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground">
-            Vaši snimci, <span className="text-secondary">uvek dostupni!</span>
+            Vaši snimci, <span className="text-primary">uvek dostupni!</span>
           </h2>
           <div className="w-16 h-1 gradient-accent-line mx-auto rounded-full mt-4" />
         </motion.div>
@@ -60,7 +60,7 @@ const OrtoCloudSection = () => {
               Sigurno, brzo i jednostavno sa našom OrtoCloud platformom.
             </p>
 
-            <div className="space-y-5">
+            <div className="space-y-5 mb-6">
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
@@ -70,7 +70,7 @@ const OrtoCloudSection = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-xl border-[0.5px] border-accent/40 flex items-center justify-center flex-shrink-0">
                     <feature.icon className="w-5 h-5 text-accent" />
                   </div>
                   <div>
@@ -85,7 +85,7 @@ const OrtoCloudSection = () => {
               ))}
             </div>
 
-            <Button variant="glow" size="lg">
+            <Button variant="glow" size="lg" style={{ marginTop: "3em" }}>
               <Cloud className="w-5 h-5 mr-2" />
               Više o OrtoCloudu
             </Button>

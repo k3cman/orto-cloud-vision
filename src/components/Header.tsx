@@ -16,8 +16,9 @@ const Header = () => {
 
   const navItems = [
     { name: "Informacije", href: "/informacije", isRoute: true },
-    { name: "Za stomatologe", href: "/za-doktore", isRoute: true },
+    { name: "Cenovnik", href: "/cenovnik", isRoute: true },
     { name: "Lokacije", href: "/lokacije", isRoute: true },
+    { name: "Za stomatologe", href: "/za-doktore", isRoute: true },
     { name: "Kontakt", href: "/kontakt", isRoute: true },
   ];
 
@@ -25,7 +26,6 @@ const Header = () => {
     { name: "2D Snimanje", href: "/usluge/2d" },
     { name: "3D Snimanje", href: "/usluge/3d" },
     { name: "Kefalometrija", href: "/usluge/kefalometrija" },
-    { name: "Cenovnik", href: "/usluge/cenovnik" },
   ];
 
   return (
@@ -81,10 +81,6 @@ const Header = () => {
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
-          <Button variant="glow" size="default" asChild>
-            <Link to="/lokacije">Lokacije</Link>
-          </Button>
-
           {/* Mobile menu toggle */}
           <button
             className="lg:hidden text-foreground p-2"

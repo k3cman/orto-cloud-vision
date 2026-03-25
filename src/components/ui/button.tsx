@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-muted hover:text-foreground rounded-full",
         link: "text-primary underline-offset-4 hover:underline",
         // Brand variants
-        glow: "bg-secondary text-secondary-foreground rounded-full shadow-glow hover:shadow-[0_12px_35px_-5px_hsl(348_83%_47%_/_0.5)] hover:-translate-y-0.5",
+        glow: "bg-primary text-primary-foreground hover:bg-primary/90 rounded-full",
         raised: "bg-card text-foreground rounded-full shadow-raised hover:shadow-[0_12px_40px_-10px_hsl(350_20%_15%_/_0.15)] hover:-translate-y-0.5 border border-border/50",
         "outline-soft": "border-2 border-secondary/40 text-secondary bg-transparent rounded-full hover:bg-secondary/5 hover:border-secondary/60",
         gradient: "text-primary-foreground rounded-full hover:-translate-y-0.5 shadow-glow",

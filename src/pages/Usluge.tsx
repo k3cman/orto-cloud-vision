@@ -6,13 +6,17 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Phone, Check, Zap, FileText } from "lucide-react";
 
-const USLUGE_TAB_PATHS = ["2d", "3d", "kefalometrija", "cenovnik"] as const;
+const USLUGE_TAB_PATHS = ["2d", "3d", "kefalometrija"] as const;
 const USLUGE_TAB_LABELS: Record<(typeof USLUGE_TAB_PATHS)[number], string> = {
   "2d": "2D Snimanje",
   "3d": "3D Snimanje",
   kefalometrija: "Kefalometrija",
-  cenovnik: "Cenovnik",
 };
+
+const RETROALVEOLARNI_SNIMAK_SRC = encodeURI(
+  "/images/Retroalveolarni snimak.jpg",
+);
+const RETROKORONALNI_SNIMAK_SRC = "/images/Retrokoronalni snimak.jpg";
 
 const ImagePlaceholder = ({
   label,
@@ -25,6 +29,40 @@ const ImagePlaceholder = ({
     className={`bg-muted/60 rounded-xl flex items-center justify-center ${className}`}
   >
     <span className="text-muted-foreground/60 text-sm">{label}</span>
+  </div>
+);
+
+/** Mimics intraoral radiographs on blue-green film base (clinical “printed film” look). */
+const DentalXrayFilmFrame = ({
+  src,
+  alt,
+  title,
+}: {
+  src: string;
+  alt: string;
+  title?: string;
+}) => (
+  <div className="relative aspect-[4/3] flex items-center justify-center overflow-hidden rounded-xl border border-cyan-950/25 bg-[hsl(206,44%,15%)]">
+    <img
+      src={src}
+      alt={alt}
+      title={title}
+      className="relative z-[1] h-full w-full object-contain brightness-[1.04] contrast-[1.07]"
+      loading="lazy"
+      decoding="async"
+    />
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 z-[2] rounded-[inherit] bg-gradient-to-b from-sky-300/25 via-cyan-600/38 to-blue-950/45 mix-blend-color"
+    />
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 z-[3] rounded-[inherit] mix-blend-soft-light bg-gradient-to-tr from-white/[0.07] via-transparent to-cyan-950/20"
+    />
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 z-[4] rounded-[inherit] shadow-[inset_0_0_90px_rgba(8,28,45,0.55)]"
+    />
   </div>
 );
 
@@ -48,18 +86,66 @@ export const Usluge2D = () => (
       <h3 className="text-xl md:text-2xl font-bold text-foreground">
         Retroalveolarni i retrokoronalni snimak
       </h3>
-      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-        Ovi mali, ciljani snimci visoke rezolucije, poznati i kao{" "}
-        <strong className="text-foreground">dentalni radiogrami</strong> ili "
-        <strong className="text-foreground">mali snimci</strong>". Prikazuju
-        pojedinačne zube sa njihovim potpornim strukturama. Koriste se za
-        detaljnu procenu stanja zubne krune (otkrivanje karijesa između zuba),
-        analizu korenskih kanala i uočavanje procesa na vrhu korena, kao i za
-        kontrolu nakon terapijskih zahvata.
-      </p>
+      <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
+        <p>
+          Ovi <strong className="text-foreground">intraoralni snimci</strong> (
+          <strong className="text-foreground">dentalni radiogrami</strong>)
+          poznati i kao &quot;
+          <strong className="text-foreground">mali snimci</strong>
+          &quot; omogućavaju detaljan uvid u pojedinačne zube i okolne
+          strukture.
+        </p>
+        <p>
+          -{" "}
+          <strong className="text-foreground">
+            Retroalveolarni snimak (RA)
+          </strong>
+          : Prikazuje ceo zub (krunu i koren) sa okolnom kosti. Nezaobilazan je
+          za analizu korenskih kanala, uočavanje upalnih procesa na vrhu korena
+          i kontrolu nakon terapijskih zahvata.
+        </p>
+        <p>
+          -{" "}
+          <strong className="text-foreground">
+            Retrokoronalni snimak (RK / Bite-wing)
+          </strong>
+          : Prikazuje samo krune zuba gornje i donje vilice, idealan je za
+          otkrivanje karijesa u međuzubnim prostorima kao i za ranu detekciju
+          problema na spojevima postojećih plombi i krunica.
+        </p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-        <ImagePlaceholder label="Retroalveolarni snimak" className="h-48" />
-        <ImagePlaceholder label="Retrokoronalni snimak" className="h-48" />
+        <figure className="m-0 space-y-2">
+          <DentalXrayFilmFrame
+            src={RETROALVEOLARNI_SNIMAK_SRC}
+            alt="Retroalveolarni snimak (RA) – rendgenski prikaz kruna, korena i okolne kosti zuba"
+            title="Retroalveolarni snimak (RA)"
+          />
+          <figcaption className="text-center text-sm text-muted-foreground leading-snug px-1">
+            <span className="font-medium text-foreground">
+              Retroalveolarni snimak (RA)
+            </span>
+            <span className="block mt-0.5">
+              Prikaz kruna, korena i alveolarne kosti pojedinačnih zuba.
+            </span>
+          </figcaption>
+        </figure>
+        <figure className="m-0 space-y-2">
+          <DentalXrayFilmFrame
+            src={RETROKORONALNI_SNIMAK_SRC}
+            alt="Retrokoronalni snimak (RK), bite-wing – rendgenski prikaz kruna gornje i donje vilice"
+            title="Retrokoronalni snimak – bite-wing (RK)"
+          />
+          <figcaption className="text-center text-sm text-muted-foreground leading-snug px-1">
+            <span className="font-medium text-foreground">
+              Retrokoronalni snimak (RK) — bite-wing
+            </span>
+            <span className="block mt-0.5">
+              Prikaz međuzubnih površina — korisno za dijagnostiku karijesa i
+              kontakt plombi.
+            </span>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
@@ -70,10 +156,11 @@ export const Usluge2D = () => (
       </h3>
       <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
         Ortopantomogram ("<strong className="text-foreground">ortopan</strong>")
-        je panoramski snimak koji pruža sveobuhvatan pregled obe vilice, svih
-        zuba, villičnih zglobova i okolnih struktura. Kao najtraženiji snimak,
-        predstavlja osnovni alat u početnoj dijagnostici i planiranju terapije u
-        gotovo svim granama stomatologije.
+        je panoramski snimak koji pruža sveobuhvatan prikaz obe vilice, svih
+        zuba, viličnih zglobova i okolnih struktura. Zahvaljujući širem uvidu u
+        stanje zuba i kosti, ortopantomogram predstavlja osnovni alat u početnoj
+        dijagnostici i stomatolozima je često potreban već pri prvoj poseti, kao
+        i pri kontrolnim pregledima.
       </p>
       <ImagePlaceholder label="Ortopantomogram" className="h-56" />
     </div>
@@ -509,7 +596,7 @@ const UslugeLayout = () => {
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6">
           <Tabs value={currentTab} className="w-full">
-            <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-4 mb-12 bg-muted/50 p-1 rounded-full">
+            <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-3 mb-12 bg-muted/50 p-1 rounded-full">
               {USLUGE_TAB_PATHS.map((path) => (
                 <TabsTrigger
                   key={path}

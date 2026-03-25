@@ -8,24 +8,37 @@ const Hero = () => {
   const locations = ["BEOGRAD", "NOVI SAD", "PANČEVO"];
 
   return (
-    <section className="min-h-screen pt-20 bg-background relative overflow-hidden flex flex-col">
-      {/* Diagonal Geometric Background */}
-      <div className="absolute top-0 right-0 w-[65%] h-full z-0 hidden lg:block">
-        {/* Main diagonal stripe - crimson/red */}
+    <section className="min-h-screen pt-20 bg-background relative overflow-x-hidden flex flex-col">
+      {/* Stripe clip wrapper: contains stripes to Hero only (extends up for behind-nav), no layout impact */}
+      <div
+        className="absolute -top-20 left-0 right-0 bottom-0 overflow-hidden pointer-events-none z-0 hidden lg:block"
+        aria-hidden
+      >
+        {/* Diagonal stripes - purely decorative, absolutely positioned */}
         <div
-          className="absolute -top-[20%] -right-[10%] w-[80%] h-[140%] bg-secondary opacity-90"
-          style={{ transform: "rotate(-20deg)" }}
-        />
-        {/* Orange stripe */}
-        <div
-          className="absolute -top-[10%] -right-[5%] w-[50%] h-[130%] bg-accent opacity-85"
-          style={{ transform: "rotate(-25deg)" }}
-        />
-        {/* Golden accent stripe */}
-        <div
-          className="absolute -top-[5%] right-0 w-[30%] h-[120%] bg-golden opacity-80"
-          style={{ transform: "rotate(-28deg)" }}
-        />
+          className="absolute top-[-20%] right-0 w-[70%] xl:w-[60%] 2xl:w-[48%] h-[110%]"
+          style={{
+            transform: "rotate(-18deg)",
+            transformOrigin: "top right",
+          }}
+        >
+          <div
+            className="absolute top-0 right-0 w-[25%] h-full opacity-95"
+            style={{ backgroundColor: "#F0A511" }}
+          />
+          <div
+            className="absolute top-0 right-[25%] w-[25%] h-full opacity-95"
+            style={{ backgroundColor: "#F28722" }}
+          />
+          <div
+            className="absolute top-0 right-[50%] w-[25%] h-full opacity-95"
+            style={{ backgroundColor: "#E20E60" }}
+          />
+          <div
+            className="absolute top-0 right-[75%] w-[12.5%] h-full opacity-95"
+            style={{ backgroundColor: "#952862" }}
+          />
+        </div>
       </div>
 
       {/* Mobile diagonal bg */}
@@ -53,10 +66,10 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <span className="text-secondary">Više</span> od snimka.
+                <span className="text-primary">Više</span> od snimka.
                 <br />
                 Vizija{" "}
-                <span className="text-secondary font-extrabold">osmeha.</span>
+                <span className="text-primary font-extrabold">osmeha.</span>
               </motion.h1>
 
               <motion.p
@@ -67,7 +80,7 @@ const Hero = () => {
               >
                 Najpreciznija 2D i 3D dijagnostika. Minimalno zračenje.
                 <br />
-                Rezultati dostupni odmah na OrtoCloud.
+                Rezultati dostupni odmah na OrtoCloud platformi.
               </motion.p>
             </div>
 
@@ -77,7 +90,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="default" size="lg" asChild className="mt-6">
                 <Link to="/lokacije">
                   <MapPin className="w-5 h-5 mr-2" />
                   Pronađi Lokacije
@@ -97,7 +110,7 @@ const Hero = () => {
               <motion.img
                 src={heroImage}
                 alt="Dental professional holding X-ray tablet"
-                className="relative z-10 max-w-full h-auto object-contain drop-shadow-2xl"
+                className="relative z-10 max-w-full h-auto object-contain mt-6"
                 style={{ maxHeight: "calc(100vh - 200px)" }}
               />
             </div>
@@ -105,8 +118,13 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Location Strip - Dark Maroon Bar */}
-      <div className="bg-primary py-6 relative z-10">
+      {/* Location Strip - Gradient Bar */}
+      <div
+        className="py-6 relative z-10"
+        style={{
+          background: "linear-gradient(to right, #952862, #E20E60)",
+        }}
+      >
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
