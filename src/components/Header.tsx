@@ -15,8 +15,8 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Informacije", href: "/informacije", isRoute: true },
     { name: "Cenovnik", href: "/cenovnik", isRoute: true },
+    { name: "Informacije", href: "/informacije", isRoute: true },
     { name: "Lokacije", href: "/lokacije", isRoute: true },
     { name: "Za stomatologe", href: "/za-doktore", isRoute: true },
     { name: "Kontakt", href: "/kontakt", isRoute: true },

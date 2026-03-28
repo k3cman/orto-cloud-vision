@@ -17,18 +17,18 @@ export const Usluge3D = () => (
     </div>
 
     {/* Split: Image Left, Text Right */}
-    <div className="grid lg:grid-cols-2 gap-8 items-start">
-      {/* Left - 3D Image Placeholder */}
-      <div className="soft-card p-8">
-        <div className="aspect-[4/5] bg-muted/50 rounded-2xl flex items-center justify-center">
-          <div className="text-center p-8">
-            <div className="w-28 h-28 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
-              <span className="text-5xl">🦷</span>
-            </div>
-            <span className="text-muted-foreground/60 text-sm">
-              3D CBCT Prikaz
-            </span>
-          </div>
+    <div className="grid lg:grid-cols-2 gap-8 items-start lg:items-stretch">
+      {/* Left - 3D CBCT video (stretches to match text column on lg+) */}
+      <div className="soft-card flex h-full min-h-0 flex-col p-8">
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border/40 bg-black lg:min-h-0 lg:flex-1 lg:aspect-auto">
+          <iframe
+            src="https://www.youtube.com/embed/fLM5W-d17HU"
+            title="3D CBCT prikaz"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
+            loading="lazy"
+          />
         </div>
       </div>
 
@@ -61,23 +61,24 @@ export const Usluge3D = () => (
                   Implantologija i hirurgija:
                 </strong>{" "}
                 Sigurno postavljanje implantata i bezbedno vađenje umnjaka uz
-                jasan uvid u položaj nerava.
+                jasan uvid u položaj nerava, strukturu i dimenzije alveolarne
+                kosti i odnose sa maksilarnim sinusom.
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
               <span>
                 <strong className="text-foreground">Endodoncija:</strong>{" "}
-                Precizno otkrivanje kanala i upalnih procesa na vrhu korena
-                zuba.
+                Precizan prikaz kanala korena zuba i upalnih procesa na vrhu
+                korena zuba.
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
               <span>
-                <strong className="text-foreground">Ortodoncija i TMZ:</strong>{" "}
-                Analiza koštanih struktura lica i jasan prikaz viličnih zglobova
-                (temporomandibularni zglob).
+                <strong className="text-foreground">Ortodoncija:</strong>{" "}
+                Analiza koštanih struktura lica i jasan prikaz odnosa zuba i
+                viličnih zglobova (temporomandibularni zglobovi).
               </span>
             </li>
             <li className="flex items-start gap-2">
@@ -108,7 +109,7 @@ export const Usluge3D = () => (
             Malo Polje (5 × 5 cm)
           </h5>
           <p className="text-muted-foreground text-xs">
-            Obuhvata frontalni deo ili jednu stranu gornje ili donje vilice.
+            Obuhvata ciljanu regiju, zahvatajući 2-3 zuba u nizu.
           </p>
         </div>
 
@@ -129,7 +130,7 @@ export const Usluge3D = () => (
             <span className="text-primary font-bold">L</span>
           </div>
           <h5 className="font-semibold text-foreground text-sm">
-            Veliko Polje (8 × 8 cm / 12 × 9 cm)
+            Veliko Polje (12 × 9 cm)
           </h5>
           <p className="text-muted-foreground text-xs">Obuhvata obe vilice.</p>
         </div>
@@ -139,7 +140,7 @@ export const Usluge3D = () => (
     {/* Bottom Note */}
     <div className="p-4 bg-muted/50 rounded-xl text-center">
       <p className="text-sm text-muted-foreground">
-        3D snimci se izdaju na CD-u i otpremaju na{" "}
+        3D snimci se izdaju na USB-u i otpremaju na{" "}
         <strong className="text-primary">OrtoCloud</strong>, gde su 15 dana
         dostupni Vama i Vašem stomatologu. Pristup je moguć isključivo putem
         računara.

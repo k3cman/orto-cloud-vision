@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, FileText, Zap } from "lucide-react";
+import { Check, Zap } from "lucide-react";
 
 export const UslugeKefa = () => (
   <motion.div
@@ -18,23 +18,30 @@ export const UslugeKefa = () => (
 
     {/* Split: Image Left, Text Right */}
     <div className="grid lg:grid-cols-2 gap-8 items-start">
-      {/* Left - Image Placeholder */}
-      <div className="soft-card p-6">
-        <div className="aspect-[4/5] bg-muted/50 rounded-xl flex items-center justify-center overflow-hidden">
-          <div className="text-center p-8">
-            <div className="w-32 h-32 mx-auto mb-4 bg-primary/5 rounded-full flex items-center justify-center border-2 border-dashed border-primary/30">
-              <FileText className="w-12 h-12 text-primary/50" />
-            </div>
-            <span className="text-muted-foreground/60 text-sm">
-              Kefalometrijski Tracing
-            </span>
-          </div>
+      {/* Left - Kefalometrijski tracing */}
+      <div className="soft-card p-6 border">
+        <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/30">
+          <img
+            src="/images/Kef-analize2-400x367.jpg"
+            alt="Kefalometrijski tracing – lateralni kefalogram sa digitalnim merenjima"
+            className="w-full h-auto object-contain"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
 
       {/* Right - Content */}
-      <div className="space-y-6">
-        <h3 className="text-xl font-bold text-primary">KefAnalize</h3>
+      <div className="space-y-6 mt-6">
+        <h3 className="m-0">
+          <img
+            src="/images/Kef-analize-logo.png"
+            alt="KefAnalize dentamed"
+            className="h-9 w-auto max-w-full object-contain object-left md:h-11"
+            loading="eager"
+            decoding="async"
+          />
+        </h3>
 
         <p className="text-muted-foreground leading-relaxed text-sm">
           Da bi planiranje Vaše terapije fiksnom protezom bilo potpuno precizno,
@@ -45,8 +52,7 @@ export const UslugeKefa = () => (
 
         <div className="space-y-3">
           <h4 className="font-bold text-foreground flex items-center gap-2 text-sm">
-            <Zap className="w-4 h-4 text-primary" />
-            Ključne karakteristike
+            Ključne karakteristike:
           </h4>
           <ul className="space-y-3">
             <li className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -77,22 +83,13 @@ export const UslugeKefa = () => (
                 <strong className="text-foreground">
                   Digitalna dostupnost:
                 </strong>{" "}
-                Rezultati se čuvaju u OrtoCloudu Vašeg stomatologa u digitalnom
-                formatu, omogućavajući brz i jednostavan uvid kad god je to
-                potrebno tokom procesa lečenja.
+                Vaši rezultati se čuvaju na OrtoCloud nalogu Vašeg stomatologa u
+                digitalnom formatu, omogućavajući brz i jednostavan uvid kad god
+                je to potrebno tokom procesa lečenja.
               </span>
             </li>
           </ul>
         </div>
-
-        <p className="text-sm text-muted-foreground">
-          Za izradu KefAnalize potrebni su{" "}
-          <strong className="text-foreground">
-            kefalogrami (lateralni i PA)
-          </strong>{" "}
-          snimljeni u nekom od OrtoDent rendgen centara, uz napomenu Vašeg
-          stomatologa o željenom tipu analize.
-        </p>
       </div>
     </div>
   </motion.div>

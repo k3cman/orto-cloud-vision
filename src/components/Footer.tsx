@@ -40,7 +40,7 @@ const Footer = () => {
             </Link>
             <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs">
               Lider u dentalnoj radiologiji sa preko 17 godina iskustva.
-              Najsavremenija tehnologija za vašu dijagnostiku.
+              Najsavremenija tehnologija za Vašu dijagnostiku.
             </p>
             <div className="flex gap-3 pt-2">
               <a
