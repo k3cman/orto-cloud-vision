@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Cloud, Smartphone, Share2, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import tabletXray from "@/assets/tablet-xray.png";
+import tabletXray from "@/assets/internet-pristup2.jpg";
 
 const OrtoCloudSection = () => {
   const features = [

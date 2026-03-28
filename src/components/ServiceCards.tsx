@@ -107,7 +107,7 @@ const ServiceCards = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-4">
-            Naše Usluge
+            Naše usluge
           </h2>
           <div className="w-16 h-1 gradient-accent-line mx-auto rounded-full mb-4" />
           <p className="text-muted-foreground max-w-2xl mx-auto">

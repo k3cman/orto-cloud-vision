@@ -30,10 +30,7 @@ const Hero = () => {
             className="absolute top-0 right-[25%] w-[25%] h-full opacity-95"
             style={{ backgroundColor: "#F28722" }}
           />
-          <div
-            className="absolute top-0 right-[50%] w-[25%] h-full opacity-95"
-            style={{ backgroundColor: "#E20E60" }}
-          />
+          <div className="absolute top-0 right-[50%] w-[25%] h-full opacity-95 bg-primary" />
           <div
             className="absolute top-0 right-[75%] w-[12.5%] h-full opacity-95"
             style={{ backgroundColor: "#952862" }}
@@ -69,11 +66,13 @@ const Hero = () => {
                 <span className="text-primary">Više</span> od snimka.
                 <br />
                 Vizija{" "}
-                <span className="text-primary font-extrabold">osmeha.</span>
+                <span className="text-primary">
+                  <span className="font-extrabold">osmeha.</span>
+                </span>
               </motion.h1>
 
               <motion.p
-                className="text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed"
+                className="text-base md:text-md text-muted-foreground max-w-lg leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -122,7 +121,7 @@ const Hero = () => {
       <div
         className="py-6 relative z-10"
         style={{
-          background: "linear-gradient(to right, #952862, #E20E60)",
+          background: "linear-gradient(to right, #952862, #db1a56)",
         }}
       >
         <div className="container mx-auto px-6">

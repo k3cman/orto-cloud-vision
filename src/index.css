@@ -21,8 +21,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
 
-    /* Primary (#E20E60) - headings, gradient start */
-    --primary: 337 88% 47%;
+    /* Primary #db1a56 — brand magenta */
+    --primary: 341 79% 48%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary (#952862) - buttons, icons, active states */
@@ -42,7 +42,7 @@
 
     --border: 0 0% 87%;                /* #DEDEDE - subtle grey */
     --input: 0 0% 87%;
-    --ring: 337 88% 47%;
+    --ring: 341 79% 48%;
 
     --radius: 0.75rem;
 
@@ -77,7 +77,7 @@
     --popover: 0 0% 21%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 337 88% 52%;
+    --primary: 341 79% 52%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 328 58% 45%;
@@ -94,7 +94,7 @@
 
     --border: 0 0% 28%;
     --input: 0 0% 28%;
-    --ring: 337 88% 52%;
+    --ring: 341 79% 52%;
   }
 }
 

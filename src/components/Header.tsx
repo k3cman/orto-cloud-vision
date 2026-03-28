@@ -72,7 +72,7 @@ const Header = () => {
             <Link
               key={item.name}
               to={item.href}
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-semibold"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-[15px] font-semibold"
             >
               {item.name}
             </Link>
