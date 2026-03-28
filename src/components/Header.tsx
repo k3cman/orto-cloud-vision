@@ -17,8 +17,8 @@ const Header = () => {
   const navItems = [
     { name: "Cenovnik", href: "/cenovnik", isRoute: true },
     { name: "Informacije", href: "/informacije", isRoute: true },
-    { name: "Lokacije", href: "/lokacije", isRoute: true },
     { name: "Za stomatologe", href: "/za-doktore", isRoute: true },
+    { name: "Lokacije", href: "/lokacije", isRoute: true },
     { name: "Kontakt", href: "/kontakt", isRoute: true },
   ];
 
@@ -81,6 +81,12 @@ const Header = () => {
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
+          <Button variant="default" size="sm" className="rounded-full" asChild>
+            <Link to="/#ortocloud">
+              <Cloud className="w-4 h-4" />
+              OrtoCloud
+            </Link>
+          </Button>
           {/* Mobile menu toggle */}
           <button
             className="lg:hidden text-foreground p-2"

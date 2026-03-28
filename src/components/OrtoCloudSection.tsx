@@ -23,7 +23,10 @@ const OrtoCloudSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section
+      id="ortocloud"
+      className="py-20 bg-background relative overflow-hidden scroll-mt-24"
+    >
       {/* Diagonal accent */}
       <div
         className="absolute -bottom-20 -right-10 w-60 h-[120%] bg-accent/5"

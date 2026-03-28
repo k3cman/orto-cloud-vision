@@ -5,19 +5,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Monitor,
   Smartphone,
   Cloud,
   Play,
+  Apple,
   ArrowRight,
   Check,
-  FileText,
   Zap,
   Download,
   Headset,
 } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import tabletXray from "@/assets/internet-pristup2.jpg";
 
 const ZaDoktore = () => {
   const { toast } = useToast();
@@ -44,6 +44,37 @@ const ZaDoktore = () => {
     viewport: { once: true },
     transition: { duration: 0.6 },
   };
+
+  const appStoreBadges = [
+    {
+      key: "ortocloud",
+      top: "Otvorite",
+      bottom: "OrtoCloud",
+      href: "/#ortocloud",
+      Icon: Cloud,
+    },
+    {
+      key: "google-play",
+      top: "Preuzmite na",
+      bottom: "Google Play",
+      href: "#",
+      Icon: Play,
+    },
+    {
+      key: "app-store",
+      top: "Preuzmite u",
+      bottom: "App Store",
+      href: "#",
+      Icon: Apple,
+    },
+    {
+      key: "app-gallery",
+      top: "Preuzmite u",
+      bottom: "AppGallery",
+      href: "#",
+      Icon: Smartphone,
+    },
+  ] as const;
 
   return (
     <div className="min-h-screen bg-background">
@@ -73,7 +104,7 @@ const ZaDoktore = () => {
                   </a>
                 </Button>
                 <Button variant="outline-soft" size="lg">
-                  Otvorite OrtoCloud nalog
+                  OrtoCloud Login
                 </Button>
               </div>
             </motion.div>
@@ -83,15 +114,14 @@ const ZaDoktore = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="aspect-[4/5] bg-gradient-to-br from-accent to-primary/10 rounded-3xl flex items-center justify-center overflow-hidden">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Monitor className="w-12 h-12 text-primary" />
-                  </div>
-                  <p className="text-muted-foreground/60 text-sm">
-                    Doctor with Tablet Image
-                  </p>
-                </div>
+              <div className="aspect-[4/5] overflow-hidden rounded-3xl border border-border/40 bg-muted/30 shadow-card">
+                <img
+                  src={encodeURI("/images/image 12 (1).png")}
+                  alt="Savremena stomatološka ordinacija sa dentalnim kreslom i monitorom sa prikazom ortopantomograma"
+                  className="h-full w-full object-cover object-center"
+                  loading="eager"
+                  decoding="async"
+                />
               </div>
             </motion.div>
           </div>
@@ -105,20 +135,14 @@ const ZaDoktore = () => {
             {/* Left - Image */}
             <motion.div {...fadeInUp} className="order-2 lg:order-1">
               <div className="soft-card p-8">
-                <div className="aspect-[4/3] bg-muted/50 rounded-xl flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="flex items-center justify-center gap-4 mb-4">
-                      <div className="w-16 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Monitor className="w-8 h-8 text-primary" />
-                      </div>
-                      <div className="w-10 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Smartphone className="w-5 h-5 text-primary" />
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground/60 text-sm">
-                      OrtoCloud Interface
-                    </p>
-                  </div>
+                <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/30">
+                  <img
+                    src={tabletXray}
+                    alt="OrtoCloud na tabletu — pregled dentalnog snimka"
+                    className="h-auto w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </motion.div>
@@ -135,8 +159,8 @@ const ZaDoktore = () => {
               <div className="space-y-3 text-muted-foreground text-sm leading-relaxed">
                 <p>
                   <strong>Šaljite upute online</strong> direktno kroz
-                  aplikaciju. Zaboravite na papire i telefoniranje. Pratite
-                  status snimanja u realnom vremenu.{" "}
+                  aplikaciju. Zaboravite na papire i telefoniranje.
+                  <br />
                   <strong>Pogledajte, preuzmite ili podelite</strong> snimke sa
                   kolegama jednim klikom.
                 </p>
@@ -151,23 +175,39 @@ const ZaDoktore = () => {
                 Saznajte više o OrtoCloudu
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-
-              {/* App Store Badges */}
-              <div className="flex flex-wrap gap-3 pt-2">
-                {["OrtoCloud", "Google Play", "App Store", "AppGallery"].map(
-                  (store) => (
-                    <div
-                      key={store}
-                      className="bg-foreground text-primary-foreground px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2"
-                    >
-                      <Cloud className="w-3 h-3" />
-                      {store}
-                    </div>
-                  ),
-                )}
-              </div>
             </motion.div>
           </div>
+
+          {/* App store badges — full width row below grid */}
+          <motion.div
+            {...fadeInUp}
+            transition={{ delay: 0.25, duration: 0.6 }}
+            className="mt-12 w-full border-t border-border/50 pt-10"
+          >
+            <div className="flex w-full flex-wrap items-center justify-center gap-1.5 sm:gap-2 lg:justify-evenly">
+              {appStoreBadges.map(({ key, top, bottom, href, Icon }) => (
+                <a
+                  key={key}
+                  href={href}
+                  aria-label={`${bottom} — ${top}`}
+                  className="inline-flex min-h-[52px] items-center gap-3 rounded-full border-2 border-primary bg-background px-4 py-2.5 text-primary shadow-sm transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  <Icon
+                    className="h-8 w-8 shrink-0 stroke-[1.35]"
+                    aria-hidden
+                  />
+                  <span className="flex flex-col items-start gap-0.5 leading-none">
+                    <span className="text-[10px] font-semibold uppercase tracking-wide text-primary">
+                      {top}
+                    </span>
+                    <span className="text-sm font-bold text-primary">
+                      {bottom}
+                    </span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -187,13 +227,11 @@ const ZaDoktore = () => {
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Pružite svojim pacijentima najviši standard dijagnostike uz naše
                 3D snimke. Naši centri su opremljeni{" "}
-                <strong className="text-foreground"> Vatech</strong> aparatima,
-                uključujući i najnovije modele sa specijalizovanim programima za
+                <strong className="text-foreground">Vatech</strong> aparatima
+                najnovije generacije sa specijalizovanim programima za
                 endodonciju visoke rezolucije. Korišćenjem vodeće svetske
-                tehnologije i{" "}
-                <strong className="text-foreground">Ez3D-i</strong> softvera,
-                dobijate kristalno jasne snimke koji omogućavaju precizno
-                planiranje implantata, hirurških zahvata i endodontskih
+                tehnologije, dobijate kristalno jasne snimke koji omogućavaju
+                precizno planiranje implantata, hirurških zahvata i endodontskih
                 tretmana.
               </p>
 
@@ -229,9 +267,9 @@ const ZaDoktore = () => {
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span>
                       <strong className="text-foreground">
-                        Ultra-fast Scan
+                        Brza ekspozicija
                       </strong>
-                      : Proces skeniranja traje svega par sekundi, čime se
+                      : Proces skeniranja traje svega nekoliko sekundi, čime se
                       eliminišu artefakti pokreta i osigurava savršeno oštra
                       slika iz prvog pokušaja.
                     </span>
@@ -240,30 +278,50 @@ const ZaDoktore = () => {
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span>
                       <strong className="text-foreground">
-                        Brza digitalna dostava
+                        Vatech 3D tehnologija niske doze
                       </strong>
-                      : Svi 3D snimci su Vam dostupni putem OrtoClouda odmah
-                      nakon snimanja.
+                      : Napredni senzori omogućavaju vrhunsku dijagnostičku
+                      preciznost uz značajno smanjenu dozu zračenja, pružajući
+                      maksimalnu bezbednost za svakog pacijenta.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span>
+                      <strong className="text-foreground">
+                        Digitalna dostava
+                      </strong>
+                      : Svi 3D snimci su Vam dostupni putem OrtoCloud platforme
+                      odmah nakon snimanja.
                     </span>
                   </li>
                 </ul>
               </div>
             </motion.div>
 
-            {/* Right - Image */}
+            {/* Right - Tomografske analize (slike) */}
             <motion.div
               {...fadeInUp}
               transition={{ delay: 0.2, duration: 0.6 }}
+              className="flex flex-col gap-4"
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-accent to-primary/10 rounded-2xl flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <FileText className="w-10 h-10 text-primary" />
-                  </div>
-                  <p className="text-muted-foreground/60 text-sm">
-                    3D CBCT prikaz
-                  </p>
-                </div>
+              <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/30 shadow-card">
+                <img
+                  src={encodeURI("/images/Tomografska analiza.jpg")}
+                  alt="Tomografska analiza — CBCT preseci i merenja u Ez3D-i softveru"
+                  className="h-auto w-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-border/40 bg-muted/30 shadow-card">
+                <img
+                  src={encodeURI("/images/Tomografska analiza 2.jpg")}
+                  alt="Tomografska analiza — dodatni pregled preseka i panorame u Ez3D-i softveru"
+                  className="h-auto w-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </motion.div>
           </div>
@@ -273,58 +331,50 @@ const ZaDoktore = () => {
       {/* SECTION 4: Technology & Video */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
+          <motion.h2
+            {...fadeInUp}
+            className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12"
+          >
+            Moćan softver za jednostavan rad
+          </motion.h2>
           <motion.div {...fadeInUp} className="text-center mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Moćna tehnologija koju ćete savladati za 5 minuta.
-            </h2>
             <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
-              Ez3D-i softver je dizajniran da bude intuitivan, omogućavajući Vam
-              da odmah pristupite svim neophodnim dijagnostičkim alatima.
-              Napredni interfejs prilagođen je potrebama stomatologa, čineći
-              navigaciju kroz 3D snimak jednostavnom i efikasnom.
+              Preciznost Vatech tehnologije upotpunjena je Ez3D-i softverom,
+              koji kompleksnu 3D dijagnostiku pretvara u jednostavan proces.
+              Softver je dizajniran tako da Vam svi neophodni alati budu
+              nadohvat ruke, bez potrebe za dugotrajnim obukama. Napredni
+              interfejs je prilagođen potrebama stomatologa, čineći navigaciju
+              kroz 3D snimak jednostavnom, brzom i efikasnom.
             </p>
           </motion.div>
 
-          {/* Video Placeholder */}
+          {/* Vatech / Ez3D-i video */}
           <motion.div {...fadeInUp} className="max-w-3xl mx-auto mb-8">
-            <div className="aspect-video bg-muted rounded-2xl overflow-hidden shadow-card relative group cursor-pointer">
-              <div className="absolute inset-0 flex items-center justify-center bg-foreground/5 group-hover:bg-foreground/10 transition-colors">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <Play className="w-8 h-8 text-primary-foreground ml-1" />
-                </div>
-              </div>
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border/40 bg-black shadow-card">
+              <iframe
+                src="https://www.youtube.com/embed/Xrgnn9Tw75Q"
+                title="Vatech Ez3D-i — video prezentacija softvera"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full border-0"
+                loading="lazy"
+              />
             </div>
           </motion.div>
 
-          {/* Two info cards below video */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-10">
-            <motion.div {...fadeInUp} className="soft-card p-6 text-center">
-              <Download className="w-6 h-6 text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground text-sm mb-1">
-                Vatech tutotijali
-              </h4>
-              <p className="text-muted-foreground text-xs">
-                Iskoristite selekciju kratkih video uputstava sa zvaničnih
-                Vatech YouTube kanala kako biste se lakše upoznali sa svim
-                funkcionalnostima softvera.
-              </p>
-            </motion.div>
-            <motion.div
-              {...fadeInUp}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="soft-card p-6 text-center"
-            >
-              <Headset className="w-6 h-6 text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground text-sm mb-1">
-                Naša podrška
-              </h4>
-              <p className="text-muted-foreground text-xs">
-                Naš tim je tu da Vam pruži pomoć oko instalacije softvera, prvih
-                koraka u radu ili bilo kojih tehničkih pitanja koja možete
-                imati.
-              </p>
-            </motion.div>
-          </div>
+          <motion.div
+            {...fadeInUp}
+            className="mb-8 max-w-3xl mx-auto space-y-3 text-center"
+          >
+            <h3 className="text-lg font-bold text-foreground md:text-xl">
+              Vatech tutorijali
+            </h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Iskoristite selekciju kratkih video uputstava sa zvaničnih Vatech
+              YouTube kanala kako biste se lakše upoznali sa svim
+              funkcionalnostima softvera.
+            </p>
+          </motion.div>
 
           {/* Software links */}
           <motion.div
@@ -384,18 +434,17 @@ const ZaDoktore = () => {
           </motion.h2>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
-            {/* Left - Image */}
+            {/* Left - Kefalometrijski tracing (same asset as Usluge / Kefalometrija) */}
             <motion.div {...fadeInUp}>
               <div className="soft-card p-6">
-                <div className="aspect-[4/5] bg-muted/50 rounded-xl flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-24 h-24 bg-primary/5 rounded-full flex items-center justify-center border-2 border-dashed border-primary/30 mx-auto mb-4">
-                      <FileText className="w-10 h-10 text-primary/50" />
-                    </div>
-                    <p className="text-muted-foreground/60 text-sm">
-                      Kefalometrijski Tracing
-                    </p>
-                  </div>
+                <div className="overflow-hidden rounded-xl border border-border/40 bg-muted/30">
+                  <img
+                    src="/images/Kef-analize2-400x367.jpg"
+                    alt="Kefalometrijski tracing – lateralni kefalogram sa digitalnim merenjima"
+                    className="h-auto w-full object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </motion.div>
@@ -406,16 +455,25 @@ const ZaDoktore = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="space-y-6"
             >
-              <h3 className="text-xl font-bold text-primary">KefAnalize</h3>
+              <h3 className="m-0">
+                <img
+                  src="/images/Kef-analize-logo.png"
+                  alt="KefAnalize dentamed"
+                  className="h-9 w-auto max-w-full object-contain object-left md:h-11"
+                  loading="eager"
+                  decoding="async"
+                />
+              </h3>
 
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Zaboravite na ručno ucrtavanje tačaka i trošenje dragocenih sati
-                na proračune. Uz pomoć vodećeg svetskog sofvera{" "}
-                <strong className="text-foreground">AudaxCeph</strong> i stručni
-                nadzor naših doktora stomatologije, dobijate najpreciznije
-                analize koje stede Vaše vreme i omogućavaju da se fokusirajte na
-                ono što je najbitnije – planiranje savršenog osmeha Vaših
-                pacijenata.
+                na proračune. Koristeći vodeći svetski softver{" "}
+                <strong className="text-foreground">AudaxCeph</strong>, naš
+                stručni tim stomatologa priprema Vaše kefalometrijske proračune,
+                uz nadzor i ekspertizu specijalista ortodoncije. Na taj način
+                dobijate najpreciznije analize koje štede Vaše vreme i
+                omogućavaju da se fokusirate na ono što je najbitnije –
+                planiranje savršenog osmeha Vaših pacijenata.
               </p>
 
               <div className="space-y-3">
@@ -486,20 +544,10 @@ const ZaDoktore = () => {
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   KefAnalize se otpremaju na OrtoCloud maksimalno 48h od
-                  trenutka snimanja kefalograma i su dostupne su u vidu dva
-                  dokumenta: Kefalometrijska analiza – detaljan tabelarni prikaz
-                  svih merenja. Kefalometrijski snimak – vizuelni prikaz sa
-                  precizno obeleženim tačkama, ravnima i uglovima.
+                  trenutka snimanja kefalograma.
                 </p>
               </div>
             </motion.div>
-          </div>
-
-          <div className="max-w-5xl mx-auto text-sm mt-4 text-muted-foreground text-center">
-            Zanima Vas kako naše analize mogu unaprediti Vašu svakodnevnu
-            praksu? Tu smo za sva Vaša pitanja. Kontaktirajte nas za više
-            informacija – rado ćemo Vam objasniti proces i pomoći oko prvih
-            koraka.
           </div>
         </div>
       </section>
@@ -513,7 +561,9 @@ const ZaDoktore = () => {
                 Postanite deo OrtoDent mreže
               </h2>
               <p className="text-muted-foreground text-sm">
-                Popunite formular da biste otvorili nalog i postali naš partner.
+                Popunite kratak formular, a naš tim će Vas kontaktirati u
+                najkraćem mogućem roku kako bismo Vam pružili sve potrebne
+                informacije i pomogli Vam oko otvaranja naloga.
               </p>
             </div>
 
@@ -532,7 +582,7 @@ const ZaDoktore = () => {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   className="mt-1.5"
-                  placeholder="Dr. Petar Petrović"
+                  placeholder="dr Petar Petrović"
                 />
               </div>
 

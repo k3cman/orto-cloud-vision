@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Clock, CalendarX, Sparkles, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -11,11 +12,51 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+/** Renders FAQ answers: paragraphs separated by blank lines (`\\n\\n`), inline `**bold**`. */
+function FaqAnswerBody({ text }: { text: string }) {
+  const paragraphs = text.trim().split(/\n\n+/);
+  return (
+    <div className="space-y-3">
+      {paragraphs.map((para, i) => (
+        <p key={i} className="leading-relaxed m-0">
+          <FaqInlineBold text={para} />
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function FaqInlineBold({ text }: { text: string }) {
+  const nodes: ReactNode[] = [];
+  const re = /\*\*(.+?)\*\*/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let k = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) {
+      nodes.push(text.slice(last, m.index));
+    }
+    nodes.push(
+      <strong key={k++} className="font-semibold text-foreground">
+        {m[1]}
+      </strong>,
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) {
+    nodes.push(text.slice(last));
+  }
+  if (nodes.length === 0) {
+    return text;
+  }
+  return <>{nodes}</>;
+}
+
 const infoCards = [
   {
     icon: CalendarX,
-    title: "Bez Zakazivanja",
-    text: "Snimanje zuba i vilica se ne zakazuje. Dođite kada vama odgovara.",
+    title: "Bez zakazivanja",
+    text: "Snimanje zuba i vilica se ne zakazuje. Dođite kada Vama odgovara.",
   },
   {
     icon: Clock,
@@ -38,7 +79,7 @@ const processSteps = [
   {
     number: "2",
     title: "Prijem",
-    text: "Registracija pacijenta, unos osnovnih podataka i odabir željenog tipa snimka.",
+    text: "Registracija, unos osnovnih podataka i odabir željenog tipa snimka.",
   },
   {
     number: "3",
@@ -72,12 +113,12 @@ const faqItems = [
     question:
       "Da li mi je potreban uput stomatologa i da li mora biti u papirnoj formi?",
     answer:
-      "Uput nije neophodan, ali je poželjan jer u njemu Vaš stomatolog precizno navodi vrstu snimka koja mu je potrebna kako biste dobili dijagnostiku koja je za Vas u tom trenutku od najveće koristi. Vaš stomatolog može preko naše OrtoCloud aplikacije poslati i online uput direktno digitalnim putem, čime se eliminiše potreba za nošenjem papira i sprečava mogućnost greške ili gubitka uputa.",
+      "Uput **nije neophodan, ali je poželjan** jer u njemu Vaš stomatolog precizno navodi vrstu snimka koja mu je potrebna kako biste dobili dijagnostiku koja je za Vas u tom trenutku od najveće koristi.\n\nVaš stomatolog može preko naše OrtoCloud aplikacije poslati i **online uput** direktno digitalnim putem, čime se eliminiše potreba za nošenjem papira i sprečava mogućnost greške ili gubitka uputa.",
   },
   {
     question: "Da li je snimanje zuba bezbedno?",
     answer:
-      "Da, snimanje zuba je bezbedno. Zahvaljujući digitalnoj tehnologiji, nivo zračenja je sveden na minimum. Doza koju primite prilikom jednog snimanja ekvivalentna je prirodnom zračenju kojem ste izloženi tokom samo par dana svakodnevnog života. Naši aparati su najnovije generacije i dizajnirani su da maksimalno štite pacijenta, a uz to se svako snimanje obavlja u skladu sa svim propisanim bezbednosnim merama.",
+      "**Da, snimanje zuba je bezbedno.** Zahvaljujući digitalnoj tehnologiji, nivo zračenja je sveden na minimum.\n\nDoza koju primite prilikom jednog snimanja ekvivalentna je prirodnom zračenju kojem ste izloženi tokom samo par dana svakodnevnog života.\n\nNaši aparati su najnovije generacije i dizajnirani su da maksimalno štite pacijenta, a uz to se svako snimanje obavlja u skladu sa svim propisanim bezbednosnim merama.",
   },
   {
     question: "Da li deca smeju da snimaju zube?",
@@ -93,7 +134,7 @@ const faqItems = [
     question:
       "Kada i na koji način dobijam svoj snimak i kako mogu da ga podelim sa stomatologom?",
     answer:
-      "Vaš snimak je dostupan odmah nakon završetka procesa snimanja putem Vašeg ličnog OrtoCloud naloga. Stomatolog koji Vas je uputio na snimanje dobija pristup snimku putem naše platforme čim se proces završi. Putem aplikacije snimak možete preuzeti na svoj uređaj ili ga proslediti bilo kom drugom stomatologu putem e-maila. Na Vaš zahtev, snimke možemo izraditi i u fizičkom obliku (film ili CD) uz odgovarajuću doplatu.",
+      "**Vaš snimak je dostupan odmah** nakon završetka procesa snimanja putem Vašeg ličnog OrtoCloud naloga. Stomatolog koji Vas je uputio na snimanje dobija pristup snimku putem naše platforme čim se proces završi.\n\n**Lako deljenje i čuvanje:** Putem aplikacije snimak možete preuzeti na svoj uređaj ili ga proslediti bilo kom drugom stomatologu putem e-maila.\n\n**Fizički format:** Na Vaš zahtev, snimke možemo izraditi i u fizičkom obliku (film ili CD) uz odgovarajuću doplatu.",
   },
   {
     question: "Koliko dugo je snimak zuba validan za stomatologa?",
@@ -120,7 +161,7 @@ const Informacije = () => {
                 Sve što treba da znate o snimanju zuba.
               </h1>
               <p className="text-muted-foreground text-lg">
-                Vaš vodič kroz proces snimanja u Ortodentu.
+                Vaš vodič kroz proces snimanja u OrtoDentu.
               </p>
             </motion.div>
           </div>
@@ -196,7 +237,7 @@ const Informacije = () => {
                 ))}
               </motion.div>
 
-              {/* Image Placeholder */}
+              {/* Proces snimanja */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -204,17 +245,14 @@ const Informacije = () => {
                 transition={{ duration: 0.6 }}
                 className="order-first lg:order-last"
               >
-                <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/15 to-accent/30 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                        <Sparkles className="w-10 h-10 text-primary" />
-                      </div>
-                      <p className="text-muted-foreground/60 text-sm">
-                        Slika procesa snimanja
-                      </p>
-                    </div>
-                  </div>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border/40 shadow-card">
+                  <img
+                    src="/images/informacije.jpg"
+                    alt="Stomatolog u ordinaciji pregleda 3D snimak zuba na tabletu"
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </motion.div>
             </div>
@@ -251,7 +289,7 @@ const Informacije = () => {
                       {item.question}
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground text-sm pb-4">
-                      {item.answer}
+                      <FaqAnswerBody text={item.answer} />
                     </AccordionContent>
                   </AccordionItem>
                 ))}
@@ -261,7 +299,7 @@ const Informacije = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-primary">
+        <section className="py-16 md:py-20 bg-primary-50">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -269,7 +307,7 @@ const Informacije = () => {
               viewport={{ once: true }}
               className="text-center max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Posetite nas još danas.
               </h2>
               <Button variant="raised" size="lg" asChild>
